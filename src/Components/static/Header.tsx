@@ -5,7 +5,7 @@ import { ButtonProps } from "../../common";
 const Header = () => {
   return (
     <div className="bg-[#080A10] font-mono flex items-center justify-center w-full h-20">
-      <div className="bg-[#080A10] w-[90%] h-[80%] flex items-center justify-between">
+      <div className="bg-[#080A10] w-[85%] h-[80%] flex items-center justify-between">
         <div className="w-[60px] h-[60px] object-contain cursor-pointer">
           <img src={logo} alt="" />
         </div>
