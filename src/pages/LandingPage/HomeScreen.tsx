@@ -1,5 +1,6 @@
 import React from "react";
 import Hero from "./Hero";
+import LatestAndResultWrapper from "./LatestAndResultWrapper";
 import UpcomingMatches from "./UpcomingMatches";
 
 const HomeScreen = () => {
@@ -7,6 +8,7 @@ const HomeScreen = () => {
     <div>
       <Hero />
       <UpcomingMatches />
+      <LatestAndResultWrapper />
     </div>
   );
 };
