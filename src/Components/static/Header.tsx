@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../../assets/logo.png";
 import { ButtonProps } from "../../common";
+import { Link } from "react-scroll";
 
 const Header = () => {
   return (
@@ -11,14 +12,32 @@ const Header = () => {
         </div>
 
         <div className="flex justify-between items-center cursor-pointer text-white">
-          <p className="mr-5 text-lg hover:text-[#FBC02D]">Home</p>
-          <p className="mr-5 text-lg hover:text-[#FBC02D]">Matches</p>
-          <p className="mr-5 text-lg hover:text-[#FBC02D]">
-            Fixtures & Predict
-          </p>
-          <p className="mr-5 text-lg hover:text-[#FBC02D]">Results</p>
-          <p className="mr-5 text-lg hover:text-[#FBC02D]">Gallery</p>
-          <p className="mr-5 text-lg hover:text-[#FBC02D]">Contact</p>
+          <Link to="Hero">
+            <p className="mr-5 text-lg hover:text-[#FBC02D]">Home</p>
+          </Link>
+
+          <Link offset={-100} smooth={true} duration={500} to="UpcomingMatches">
+            <p className="mr-5 text-lg hover:text-[#FBC02D]">Matches</p>
+          </Link>
+
+          <Link
+            offset={-100}
+            smooth={true}
+            duration={500}
+            to="LatestAndResultWrapper">
+            <p className="mr-5 text-lg hover:text-[#FBC02D]">
+              Fixtures & Predict
+            </p>
+          </Link>
+          <Link offset={-100} smooth={true} duration={500} to="">
+            <p className="mr-5 text-lg hover:text-[#FBC02D]">Results</p>
+          </Link>
+          <Link offset={-100} smooth={true} duration={500} to="">
+            <p className="mr-5 text-lg hover:text-[#FBC02D]">Gallery</p>
+          </Link>
+          <Link offset={-100} smooth={true} duration={500} to="">
+            <p className="mr-5 text-lg hover:text-[#FBC02D]">Contact</p>
+          </Link>
         </div>
 
         <div className="flex justify-between items-center">
