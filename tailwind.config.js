@@ -7,6 +7,7 @@ export default {
       backgroundImage: {
         bgi: 'url("./src/assets/images/3.jpg")',
         bgresult: 'url("./src/assets/images/images.jpg")',
+        UpcomingHero: 'url("./src/assets/fb-upcoming.jpg")',
       },
     },
   },
