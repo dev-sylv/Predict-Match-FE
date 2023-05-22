@@ -6,6 +6,7 @@ export default {
     extend: {
       backgroundImage: {
         bgi: 'url("./src/assets/images/3.jpg")',
+        UpcomingHero: 'url("./src/assets/fb-upcoming.jpg")'
       },
     },
   },
