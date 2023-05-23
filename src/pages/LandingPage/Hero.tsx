@@ -11,11 +11,14 @@ const Hero = () => {
      relative
      "
     >
+
+      {/* dark blur effect */}
       <div
         className="absolute bg-[rgba(0,0,0,0.7)] top-0 w-full
           h-[100%]
       "
-      ></div>
+      ></div> 
+
       <div
         className="flex  items-center w-full
       top-0
@@ -55,6 +58,7 @@ justify-center
             optio a reprehenderit aut vitae, omnis laborum dolorem, eligendi
             ipsa
           </span>
+          {/* button */}
           <ButtonProps
             className="flex justify-center items-center w-[170px] bg-[#fbc02d] 
                 h-[47px]
@@ -70,6 +74,7 @@ justify-center
             text="get started"
           />
         </div>
+        {/* image */}
         <img src={image} className="h-[500px] mr-[100px]" />
       </div>
     </div>

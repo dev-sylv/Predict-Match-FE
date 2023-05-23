@@ -75,6 +75,7 @@ const RecentResult = () => {
             </p>
           </div>
         </div>
+        {/* Previous Results */}
         <span className="text-[20px] mt-5 mb-10 text-white font-[500]">
           Previous Results
         </span>
