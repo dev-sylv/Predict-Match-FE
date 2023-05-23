@@ -16,6 +16,7 @@ const MatchGallery = () => {
         <div className="w-[50%]  h-1 rou bg-[#fbc02d]"></div>
         <div className="w-[50%]  h-1 bg-[gray]"></div>
       </div>
+      {/* images */}
       <div className="flex justify-center items-center flex-wrap w-full h-[600px] ">
         <img src={mg1} className="w-[360px] h-[280px] m-5 object-cover" />
         <img src={mg2} className="w-[360px] h-[280px] m-5 object-cover" />
