@@ -4,9 +4,9 @@ import dhaor from "../../assets/dhoar.png";
 
 const UpcomingMatches = () => {
   return (
-    <div className="overflow-hidden">
+    <div id="UpcomingMatches" className="overflow-hidden">
       <div className="bg-UpcomingHero w-full bg-no-repeat bg-cover bg-center flex justify-center flex-col items-center h-[500px] font-mono">
-        <h1 className="text-white text-5xl mb-5">Upcoming Match</h1>
+        <h1 className="text-white text-5xl mb-5">Upcoming Matches</h1>
 
         <div className="flex justify-between items-center mt-5 ">
           <div className="flex justify-center items-center flex-col">
