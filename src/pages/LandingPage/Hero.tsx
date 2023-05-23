@@ -9,16 +9,19 @@ const Hero = () => {
       className="w-[100%] h-[620px]  bg-bgi bg-no-repeat bg-cover flex justify-center
      items-center 
      relative
-     ">
+     "
+    >
       <div
         className="absolute bg-[rgba(0,0,0,0.7)] top-0 w-full
           h-[100%]
-      "></div>
+      "
+      ></div>
       <div
         className="flex  items-center w-full
       top-0
           h-[100%]
-          justify-center z-10">
+          justify-center z-10"
+      >
         <div
           className="
         w-[800px]
@@ -26,7 +29,8 @@ const Hero = () => {
         flex-col
         flex
 justify-center
-        ">
+        "
+        >
           <h3
             className="
           font-extrabold
@@ -34,7 +38,8 @@ justify-center
           text-[#ffffff]
           mb-[20px]
           font-mono
-          ">
+          "
+          >
             Lorem ipsum dolor sit amet
           </h3>
           <span
@@ -44,7 +49,8 @@ justify-center
            text-[#ffffff]
            w-[650px]
            font-mono
-          ">
+          "
+          >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
             optio a reprehenderit aut vitae, omnis laborum dolorem, eligendi
             ipsa
@@ -59,6 +65,7 @@ justify-center
                 hover:text-white hover:bg-transparent 
                 hover:border hover:border-[#fbc02d] 
                 duration-500
+                mt-[12px]
                       "
             text="get started"
           />

@@ -2,6 +2,7 @@ import React from "react";
 import Hero from "./Hero";
 import LatestAndResultWrapper from "./LatestAndResultWrapper";
 import UpcomingMatches from "./UpcomingMatches";
+import MatchGallery from "./MatchGallery";
 
 const HomeScreen = () => {
   return (
@@ -9,6 +10,7 @@ const HomeScreen = () => {
       <Hero />
       <UpcomingMatches />
       <LatestAndResultWrapper />
+      <MatchGallery />
     </div>
   );
 };

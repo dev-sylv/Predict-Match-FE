@@ -5,14 +5,20 @@ import { Link } from "react-scroll";
 
 const Header = () => {
   return (
-    <div className="bg-[#080A10] font-mono flex items-center justify-center w-full h-20">
-      <div className="bg-[#080A10] w-[85%] h-[80%] flex items-center justify-between">
+    <div
+      className="bg-[#181c25] font-mono flex items-center justify-center w-full h-20
+    sticky
+    top-0
+    z-[999]
+    "
+    >
+      <div className="w-[85%] h-[80%] flex items-center justify-between">
         <div className="w-[60px] h-[60px] object-contain cursor-pointer">
           <img src={logo} alt="" />
         </div>
 
         <div className="flex justify-between items-center cursor-pointer text-white">
-          <Link to="Hero">
+          <Link offset={-100} smooth={true} duration={500} to="Hero">
             <p className="mr-5 text-lg hover:text-[#FBC02D]">Home</p>
           </Link>
 
@@ -24,7 +30,8 @@ const Header = () => {
             offset={-100}
             smooth={true}
             duration={500}
-            to="LatestAndResultWrapper">
+            to="LatestAndResultWrapper"
+          >
             <p className="mr-5 text-lg hover:text-[#FBC02D]">
               Fixtures & Predict
             </p>
@@ -32,7 +39,7 @@ const Header = () => {
           <Link offset={-100} smooth={true} duration={500} to="">
             <p className="mr-5 text-lg hover:text-[#FBC02D]">Results</p>
           </Link>
-          <Link offset={-100} smooth={true} duration={500} to="">
+          <Link offset={-100} smooth={true} duration={500} to="matchGallery">
             <p className="mr-5 text-lg hover:text-[#FBC02D]">Gallery</p>
           </Link>
           <Link offset={-100} smooth={true} duration={500} to="">
