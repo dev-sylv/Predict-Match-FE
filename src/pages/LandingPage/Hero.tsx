@@ -35,7 +35,7 @@ justify-center
           mb-[20px]
           font-mono
           ">
-            Lorem ipsum dolor sit amet
+            Your Ultimate Destination for Football Fans!
           </h3>
           <span
             className="
@@ -45,9 +45,8 @@ justify-center
            w-[650px]
            font-mono
           ">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
-            optio a reprehenderit aut vitae, omnis laborum dolorem, eligendi
-            ipsa
+            Whether you're a die-hard fan, a fantasy football enthusiast, or
+            simply looking for the latest updates
           </span>
           <ButtonProps
             className="flex justify-center items-center w-[170px] bg-[#fbc02d] 
