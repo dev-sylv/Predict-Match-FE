@@ -14,13 +14,11 @@ const HomeScreen = () => {
       <UpcomingMatches />
 
       <div className="w-full py-5 bg-red-400 flex justify-center items-center">
-        <div className="w-[90%] py-5 bg-blue-400 flex justify-between items-center">
+        <div className="w-[90%] py-5 bg-purple-400 flex justify-between items-center">
           <MatchPredictTable />
           <LatestAndResultWrapper />
         </div>
       </div>
-
-      <LatestAndResultWrapper />
       <MatchGallery />
     </div>
   );
