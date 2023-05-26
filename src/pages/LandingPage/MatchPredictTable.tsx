@@ -8,6 +8,8 @@ const MatchPredictTable = () => {
         <div className="w-[50%] h-1 rou bg-[#fbc02d]"></div>
         <div className="w-[50%] h-1 bg-[gray]"></div>
       </div>
+
+      <div className="w-[600px] h-[400px] bg-green-500"></div>
     </div>
   );
 };

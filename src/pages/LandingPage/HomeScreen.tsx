@@ -19,8 +19,6 @@ const HomeScreen = () => {
           <LatestAndResultWrapper />
         </div>
       </div>
-
-      <LatestAndResultWrapper />
       <MatchGallery />
     </div>
   );
