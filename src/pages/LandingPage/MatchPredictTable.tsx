@@ -9,22 +9,32 @@ const MatchPredictTable = () => {
         <div className="w-[50%] h-1 bg-[gray]"></div>
       </div>
 
-      <div className="w-[800px] py-10 bg-green-500 flex justify-center flex-col items-center">
-        <div className="flex mb-3 w-[80%] bg-[gray] px-3 py-4 justify-between items-center">
-          <h2>
-            NETTROCK FC <span className="text-[#fbc02d]">VS</span> BAMMA FC
-          </h2>
-          <h2 className="text-[#fbc02d]">June 16, 17:00</h2>
-          <h2>NETRO STADIUM</h2>
-          <h2 className="text-[#fbc02d]">Predict Matches</h2>
+      <div className="w-[700px] py-10 bg-green-500 flex justify-center flex-col items-center">
+        <div className=" text-white text-base font-bold flex mb-3 w-full bg-[gray] mt-3 px-3 py-4 justify-between items-center">
+          <div>
+            <h2>
+              NETTROCK FC <span className="text-[#fbc02d] ml-3 mr-3">VS</span>{" "}
+              BAMMA FC
+            </h2>
+          </div>
+          <div>
+            <h2 className="text-[#fbc02d]">June 16, 17:00</h2>
+          </div>
+          <div>
+            <h2>NETRO STADIUM</h2>
+          </div>
+          <div>
+            <h2 className="text-[#fbc02d] cursor-pointer">Predict Matches</h2>
+          </div>
         </div>
+
         <div className="flex mb-3 w-[80%] bg-[gray] px-3 py-4 justify-between items-center">
           <h2>
             NETTROCK FC <span className="text-[#fbc02d]">VS</span> BAMMA FC
           </h2>
           <h2 className="text-[#fbc02d]">June 16, 17:00</h2>
           <h2>NETRO STADIUM</h2>
-          <h2 className="text-[#fbc02d]">Predict Matches</h2>
+          <h2 className="text-[#fbc02d] ">Predict Matches</h2>
         </div>
       </div>
     </div>
