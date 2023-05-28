@@ -11,7 +11,7 @@ const MatchPredictTable = () => {
         </div>
       </div>
 
-      <div className="w-[700px] bg-matchtableBG py-10 [&>*:nth-child(2)]:bg-[#1E1D1B] flex justify-center flex-col items-center">
+      <div className="w-[700px] bg-matchtableBG bg-[#1e1d1bd8] bg-blend-overlay  bg-no-repeat bg-cover py-10 [&>*:nth-child(2)]:bg-[#1E1D1B] [&>*:nth-child(4)]:bg-[#1E1D1B] [&>*:nth-child(6)]:bg-[#1E1D1B] [&>*:nth-child(8)]:bg-[#1E1D1B] flex justify-center flex-col items-center">
         <div className=" text-white text-base font-bold flex mb-3 pt-4 pb-4 w-full px-3 py-4 justify-between items-center">
           <div>
             <h2>

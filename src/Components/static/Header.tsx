@@ -10,8 +10,7 @@ const Header = () => {
     sticky
     top-0
     z-[999]
-    "
-    >
+    ">
       <div className="w-[85%] h-[80%] flex items-center justify-between">
         <div className="w-[60px] h-[60px] object-contain cursor-pointer">
           <img src={logo} alt="" />
@@ -30,8 +29,7 @@ const Header = () => {
             offset={-100}
             smooth={true}
             duration={500}
-            to="LatestAndResultWrapper"
-          >
+            to="LatestAndResultWrapper">
             <p className="mr-5 text-lg hover:text-[#FBC02D]">
               Fixtures & Predict
             </p>
