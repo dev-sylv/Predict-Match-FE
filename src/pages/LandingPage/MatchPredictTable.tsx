@@ -2,7 +2,7 @@ import React from "react";
 
 const MatchPredictTable = () => {
   return (
-    <div className="">
+    <div className="" id="MatchTable">
       <div className="mb-7">
         <h2 className="text-black text-[23px] font-[500]">Match Fixture</h2>
         <div className="flex w-[160px] mb-[10px] justify-center items-center">

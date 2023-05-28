@@ -25,16 +25,16 @@ const Header = () => {
             <p className="mr-5 text-lg hover:text-[#FBC02D]">Matches</p>
           </Link>
 
+          <Link offset={-100} smooth={true} duration={500} to="MatchTable">
+            <p className="mr-5 text-lg hover:text-[#FBC02D]">
+              Fixtures & Predict
+            </p>
+          </Link>
           <Link
             offset={-100}
             smooth={true}
             duration={500}
             to="LatestAndResultWrapper">
-            <p className="mr-5 text-lg hover:text-[#FBC02D]">
-              Fixtures & Predict
-            </p>
-          </Link>
-          <Link offset={-100} smooth={true} duration={500} to="">
             <p className="mr-5 text-lg hover:text-[#FBC02D]">Results</p>
           </Link>
           <Link offset={-100} smooth={true} duration={500} to="matchGallery">
