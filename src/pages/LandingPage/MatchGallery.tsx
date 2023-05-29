@@ -8,7 +8,7 @@ import mg6 from "../../assets/images/mg6.jpg";
 
 const MatchGallery = () => {
   return (
-    <div id="matchGallery" className="flex flex-col mb-5">
+    <div id="matchGallery" className="flex flex-col mb-10">
       <h2 className="text-black ml-[4em] text-[23px] font-[500]">
         Match Gallery
       </h2>
