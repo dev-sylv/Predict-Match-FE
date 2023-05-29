@@ -5,16 +5,18 @@ import small1 from "../../assets/images/sma1.png";
 
 const RecentResult = () => {
   return (
-    <div>
+    <div className="">
       {/* Recent Results */}
-      <h2 className="text-black text-[23px] font-[500]">Recent Results</h2>
-      <div className="flex w-[160px] mb-[10px] justify-center items-center  ">
-        <div className="w-[50%]  h-1 rou bg-[#fbc02d]"></div>
-        <div className="w-[50%]  h-1 bg-[gray]"></div>
+      <div className="mb-7">
+        <h2 className="text-black text-[23px] font-[500]">Recent Results</h2>
+        <div className="flex w-[160px] mb-[10px] justify-center items-center  ">
+          <div className="w-[50%]  h-1 rou bg-[#fbc02d]"></div>
+          <div className="w-[50%]  h-1 bg-[gray]"></div>
+        </div>
       </div>
 
       {/* Last Match Result */}
-      <div className="w-[350px] pt-20 pb-20 h-[460px] bg-bgresult bg-no-repeat bg-cover bg-center flex-col flex justify-center items-center ">
+      <div className="w-[350px] pt-20 pb-20 h-[460px] bg-[#1e1d1bd8] bg-blend-overlay  bg-bgresult bg-no-repeat bg-cover bg-center flex-col flex justify-center items-center ">
         <span className="text-[20px] text-white font-[500]">
           Last Match Result
         </span>

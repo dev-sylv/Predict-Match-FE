@@ -13,13 +13,7 @@ const HomeScreen = () => {
     <div>
       <Hero />
       <UpcomingMatches />
-
-      <div className="w-full py-5 flex justify-center items-center">
-        <div className="w-[85%] py-5 flex justify-between items-center">
-          <MatchPredictTable />
-          <LatestAndResultWrapper />
-        </div>
-      </div>
+      <LatestAndResultWrapper />
       <MatchGallery />
       <ChampionAwards />
     </div>
