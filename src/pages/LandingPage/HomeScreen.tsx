@@ -6,6 +6,7 @@ import UpcomingMatches from "./UpcomingMatches";
 import MatchPredictTable from "./MatchPredictTable";
 
 import MatchGallery from "./MatchGallery";
+import ChampionAwards from "./ChampionAwards";
 
 const HomeScreen = () => {
   return (
@@ -20,6 +21,7 @@ const HomeScreen = () => {
         </div>
       </div>
       <MatchGallery />
+      <ChampionAwards />
     </div>
   );
 };
