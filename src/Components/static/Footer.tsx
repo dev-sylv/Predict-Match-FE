@@ -1,10 +1,12 @@
 import React from "react";
+import { ButtonProps } from "../../common";
+import { MdKeyboardArrowRight } from "react-icons/md";
 
 const Footer = () => {
   return (
     <div
       id="contact"
-      className=" text-slate-200 bg-black w-full py-10 flex justify-center items-center">
+      className=" text-slate-200 bg-[#181C25] w-full py-10 flex justify-center items-center">
       <div className="bg-red-400 w-[85%] py-2 flex justify-between ">
         <div className="flex flex-col text-base w-[23%] text-justify">
           <div className="mb-5">
@@ -62,22 +64,102 @@ const Footer = () => {
         </div>
 
         <div>
-          <div className="mb-5">
+          <div className="mb-5 ">
             <h2 className="text-white text-[18px] font-[500]">Useful Links</h2>
             <div className="flex w-[190px] mb-[10px] justify-center items-center">
               <div className="w-[30%] h-0.5 rou bg-[#fbc02d]"></div>
               <div className="w-[70%] h-0.5 bg-[gray]"></div>
             </div>
           </div>
+          <div className="flex cursor-pointer items-center mb-1">
+            <div className=" flex items-center justify-center text-base">
+              {" "}
+              <p className="text-base">
+                <MdKeyboardArrowRight />
+              </p>
+              <h5 className="m-0 text-base">Home</h5>
+            </div>
+          </div>
+          <div className="border-b-[1px] border-[lavender]"></div>
+          <div className="flex cursor-pointer items-center mb-1">
+            <div className=" flex items-center justify-center text-base">
+              {" "}
+              <p className="text-base">
+                <MdKeyboardArrowRight />
+              </p>
+              <h5 className="m-0 text-base">About</h5>
+            </div>
+          </div>
+          <div className="border-b-[1px] border-[lavender]"></div>
+          <div className="flex cursor-pointer items-center mb-1">
+            <div className=" flex items-center justify-center text-base">
+              {" "}
+              <p className="text-base">
+                <MdKeyboardArrowRight />
+              </p>
+              <h5 className="m-0 text-base">Results</h5>
+            </div>
+          </div>
+          <div className="border-b-[1px] border-[lavender]"></div>
+          <div className="flex cursor-pointer items-center mb-1">
+            <div className=" flex items-center justify-center text-base">
+              {" "}
+              <p className="text-base">
+                <MdKeyboardArrowRight />
+              </p>
+              <h5 className="m-0 text-base">Awards</h5>
+            </div>
+          </div>
+          <div className="border-b-[1px] border-[lavender]"></div>
+          <div className="flex cursor-pointer items-center mb-1">
+            <div className=" flex items-center justify-center text-base">
+              {" "}
+              <p className="text-base">
+                <MdKeyboardArrowRight />
+              </p>
+              <h5 className="m-0 text-base">Gallery</h5>
+            </div>
+          </div>
+          <div className="border-b-[1px] border-[lavender]"></div>
+          <div className="flex cursor-pointer items-center mb-1">
+            <div className=" flex items-center justify-center text-base">
+              {" "}
+              <p className="text-base">
+                <MdKeyboardArrowRight />
+              </p>
+              <h5 className="m-0 text-base">Contact</h5>
+            </div>
+          </div>
+          <div className="border-b-[1px] border-[lavender]"></div>
         </div>
 
-        <div>
+        <div className=" w-[23%]">
           <div className="mb-5">
             <h2 className="text-white text-[18px] font-[500]">Contact Us</h2>
-            <div className="flex w-[190px] mb-[10px] justify-center items-center">
-              <div className="w-[30%] h-0.5 rou bg-[#fbc02d]"></div>
+            <div className="flex w-[100%] mb-[10px] justify-center items-center">
+              <div className="w-[25%] h-0.5 rou bg-[#fbc02d]"></div>
               <div className="w-[70%] h-0.5 bg-[gray]"></div>
             </div>
+          </div>
+          <div className="flex flex-col">
+            <input
+              className="mt-5 w-full h-12 pl-5"
+              type="text"
+              placeholder="Name"
+              name=""
+              id=""
+            />
+            <input
+              className="mt-5  pl-5 w-full h-12 "
+              type="email"
+              placeholder="Email"
+              name=""
+              id=""
+            />
+            <ButtonProps
+              className="w-full mt-5 h-12 bg-[#fbc02d] text-black flex items-center justify-center font-mono font-bold"
+              text="SEND"
+            />
           </div>
         </div>
       </div>
