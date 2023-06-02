@@ -7,7 +7,7 @@ const Footer = () => {
     <div
       id="contact"
       className=" text-slate-200 bg-[#181C25] w-full py-10 flex justify-center items-center">
-      <div className="bg-red-400 w-[85%] py-2 flex justify-between ">
+      <div className=" w-[85%] py-2 flex justify-between ">
         <div className="flex flex-col text-base w-[23%] text-justify">
           <div className="mb-5">
             <h2 className="text-white text-[18px] font-[500]">About Us</h2>

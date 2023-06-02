@@ -1,6 +1,8 @@
 import React from "react";
 import { ButtonProps } from "../../common";
 import image from "../../assets/images/image-layer2.png";
+import image2 from "../../assets/images/mg3.jpg";
+import image3 from "../../assets/images/mg1.jpg";
 
 const Hero = () => {
   return (
@@ -66,8 +68,16 @@ justify-center
                       "
             text="get started"
           />
+
+          <div className="flex bg-black items-center mt-5 justify-center w-[30%] h-20">
+            <img src={image} alt="" />
+            <img src={image2} alt="" />
+            <img src={image3} alt="" />
+          </div>
         </div>
+
         {/* image */}
+
         <img src={image} className="h-[500px] mr-[100px]" />
       </div>
     </div>
