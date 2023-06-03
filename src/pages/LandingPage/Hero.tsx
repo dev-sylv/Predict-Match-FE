@@ -5,6 +5,24 @@ import image2 from "../../assets/images/mg3.jpg";
 import image3 from "../../assets/images/mg1.jpg";
 
 const Hero = () => {
+  const pictureHold = [
+    {
+      id: 1,
+      image: image,
+    },
+    {
+      id: 2,
+      image: image2,
+    },
+    {
+      id: 3,
+      image: image3,
+    },
+  ];
+
+  const getsinglepicture = (id: any) => {
+    console.log(pictureHold.filter((el: any) => el.id === id));
+  };
   return (
     <div
       id="Hero"
@@ -69,10 +87,28 @@ justify-center
             text="get started"
           />
 
-          <div className="flex bg-black items-center mt-5 justify-center w-[30%] h-20">
-            <img src={image} alt="" />
-            <img src={image2} alt="" />
-            <img src={image3} alt="" />
+          <div className="cursor-pointer flex bg-black items-center mt-5 justify-between w-[30%] h-20">
+            <div className="w-[30%] h-[90%] rounded-full  overflow-hidden">
+              <img
+                className="w-full object-contain"
+                src={pictureHold[0].image}
+                alt=""
+              />
+            </div>
+            <div className="w-[30%] h-[90%] rounded-full  overflow-hidden">
+              <img
+                className="w-full object-contain"
+                src={pictureHold[1].image}
+                alt=""
+              />
+            </div>
+            <div className="w-[30%] h-[90%] rounded-full  overflow-hidden">
+              <img
+                className="w-full object-contain"
+                src={pictureHold[2].image}
+                alt=""
+              />
+            </div>
           </div>
         </div>
 
