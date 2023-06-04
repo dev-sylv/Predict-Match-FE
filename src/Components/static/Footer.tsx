@@ -40,7 +40,7 @@ const Footer = () => {
               <p>28</p>
               <p>June</p>
             </div>
-            <div className="ml-5 text-center">
+            <div className=" cursor-pointer ml-5 text-center">
               <h5 className="m-0 text-sm">Mancity</h5>
               <p className="text-[#FBC02D]">vs</p>
               <h5 className="m-0 text-sm">Arsenal</h5>
@@ -53,7 +53,7 @@ const Footer = () => {
               <p>28</p>
               <p>June</p>
             </div>
-            <div className="ml-5 text-center">
+            <div className="cursor-pointer ml-5 text-center">
               <h5 className="m-0 text-sm">Liverpool</h5>
               <p className="text-[#FBC02D]">vs</p>
               <h5 className="m-0 text-sm">Chelsea</h5>
@@ -70,6 +70,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
         <div>
           <div className="mb-5">
             <h2 className="text-white text-[18px] font-[500]">Contact Us</h2>
