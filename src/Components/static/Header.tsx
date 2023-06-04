@@ -40,7 +40,7 @@ const Header = () => {
           <Link offset={-100} smooth={true} duration={500} to="matchGallery">
             <p className="mr-5 text-lg hover:text-[#FBC02D]">Gallery</p>
           </Link>
-          <Link offset={-100} smooth={true} duration={500} to="">
+          <Link offset={-100} smooth={true} duration={500} to="contact">
             <p className="mr-5 text-lg hover:text-[#FBC02D]">Contact</p>
           </Link>
         </div>

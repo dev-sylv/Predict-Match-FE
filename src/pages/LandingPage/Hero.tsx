@@ -1,8 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { ButtonProps } from "../../common";
-import image from "../../assets/images/image-layer2.png";
+import images from "../../assets/images/image-layer2.png";
+import image2 from "../../assets/hero2.png";
+import image3 from "../../assets/neymar-football-png-23.png";
 
 const Hero = () => {
+  const pictureHold = [
+    {
+      id: 1,
+      image: images,
+    },
+    {
+      id: 2,
+      image: image2,
+    },
+    {
+      id: 3,
+      image: image3,
+    },
+  ];
+
+  const [pictureState, setPictureState] = useState(images);
+
+  const getsinglepicture = (id: any) => {
+    const pic = pictureHold
+      .filter((el: any) => el?.id === id)
+      .map((el) => el?.image)
+      .toString();
+    setPictureState(pic);
+  };
+
   return (
     <div
       id="Hero"
@@ -66,9 +93,23 @@ justify-center
                       "
             text="get started"
           />
+
+          <div className="cursor-pointer flex items-center mt-5 justify-between w-[30%] h-20 ">
+            {pictureHold?.map((el) => (
+              <div
+                onClick={() => {
+                  getsinglepicture(el?.id);
+                }}
+                className="w-[30%] h-[90%] rounded-full hover:border hover:transform transition-all hover:border-[#fbc02d]  overflow-hidden">
+                <img className="w-full object-contain" src={el?.image} alt="" />
+              </div>
+            ))}
+          </div>
         </div>
+
         {/* image */}
-        <img src={image} className="h-[500px] mr-[100px]" />
+
+        <img src={pictureState} className=" h-[500px] mr-[100px]" />
       </div>
     </div>
   );
