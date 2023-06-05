@@ -1,7 +1,7 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import { HomeLayout } from "../../Components/Layout";
-import { HomeScreen } from "../../pages";
+import { HomeScreen, Login, SignUp } from "../../pages";
 
 const userRoute = createBrowserRouter([
   {
@@ -13,6 +13,14 @@ const userRoute = createBrowserRouter([
         element: <HomeScreen />,
       },
     ],
+  },
+  {
+    path: "/sign-up",
+    element: <SignUp />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
 ]);
 

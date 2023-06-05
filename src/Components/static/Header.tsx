@@ -3,6 +3,7 @@ import logo from "../../assets/logo.png";
 import { ButtonProps } from "../../common";
 import { Link } from "react-scroll";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const [toggle, setToggle] = useState(true);
@@ -51,14 +52,18 @@ const Header = () => {
           </Link>
         </div>
         <div className="hidden sm:flex justify-between items-center">
-          <ButtonProps
-            className="px-4 py-2 mr-5 cursor-pointer rounded-md bg-[#FBC02D]  hover:bg-transparent hover:border hover:border-[#FBC02D] text-white transition-all duration-100"
-            text="Sign Up"
-          />
-          <ButtonProps
-            className="px-4 py-2 cursor-pointer rounded-md border border-[#FBC02D] text-[#FBC02D] hover:bg-[#FBC02D] hover:text-white"
-            text="Login"
-          />
+          <NavLink to="/sign-up">
+            <ButtonProps
+              className="px-4 py-2 mr-5 cursor-pointer rounded-md bg-[#FBC02D]  hover:bg-transparent hover:border hover:border-[#FBC02D] text-white transition-all duration-100"
+              text="Sign Up"
+            />
+          </NavLink>
+          <NavLink to="/login">
+            <ButtonProps
+              className="px-4 py-2 cursor-pointer rounded-md border border-[#FBC02D] text-[#FBC02D] hover:bg-[#FBC02D] hover:text-white"
+              text="Login"
+            />
+          </NavLink>
         </div>
         {/* *************************** */}
 
