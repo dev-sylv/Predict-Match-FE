@@ -61,13 +61,13 @@ const Header = () => {
           />
         </div>
         {/* *************************** */}
-        className=
-        {toggle
+
+        {/* {toggle
           ? "bg-purple-500 text-white fixed w-[70%] pl-4 top-0 mt-20 duration-300 transition-all z-[-2] md:hidden "
-          : "bg-purple-500 text-white fixed w-[70%] pl-4 top-[-100%] mt-20 duration-300 transition-all  z-[-2] md:hidden"}
-        <div className="text-white text-2xl md:hidden" onClick={toggleMenu}>
+          : "bg-purple-500 text-white fixed w-[70%] pl-4 top-[-100%] mt-20 duration-300 transition-all  z-[-2] md:hidden"} */}
+        {/* <div className="text-white text-2xl md:hidden" onClick={toggleMenu}>
           {toggle ? <AiOutlineMenu /> : <AiOutlineClose />}
-        </div>
+        </div> */}
         {/* <div
           className={
             toggle
@@ -100,8 +100,8 @@ const Header = () => {
           <Link offset={-100} smooth={true} duration={500} to="contact">
             <p className="mr-5 text-lg hover:text-[#FBC02D]">Contact</p>
           </Link>
-        </div>
-        <div className="hidden sm:flex justify-between items-center">
+        </div> */}
+        {/* <div className="hidden sm:flex justify-between items-center">
           <ButtonProps
             className="px-4 py-2 mr-5 cursor-pointer rounded-md bg-[#FBC02D]  hover:bg-transparent hover:border hover:border-[#FBC02D] text-white transition-all duration-100"
             text="Sign Up"
