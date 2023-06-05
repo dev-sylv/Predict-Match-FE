@@ -11,11 +11,11 @@ import ChampionAwards from "./ChampionAwards";
 const HomeScreen = () => {
   return (
     <div>
-      {/* <Hero />
+      <Hero />
       <UpcomingMatches />
       <LatestAndResultWrapper />
       <MatchGallery />
-      <ChampionAwards /> */}
+      <ChampionAwards />
     </div>
   );
 };
