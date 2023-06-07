@@ -6,7 +6,8 @@ const Footer = () => {
   return (
     <div
       id="contact"
-      className=" text-slate-200 bg-[#181C25] w-full py-10 flex justify-center items-center">
+      className=" text-slate-200 bg-[#181C25] w-full py-10 flex justify-center items-center"
+    >
       <div className=" w-[85%] py-2 flex justify-between ">
         <div className="flex flex-col text-base w-[23%] text-justify">
           <div className="mb-5">
@@ -143,21 +144,21 @@ const Footer = () => {
           </div>
           <div className="flex flex-col">
             <input
-              className="mt-5 w-full h-12 pl-5"
+              className="mt-5 w-full h-12 pl-5 text-black"
               type="text"
               placeholder="Name"
               name=""
               id=""
             />
             <input
-              className="mt-5  pl-5 w-full h-12 "
+              className="mt-5  pl-5 w-full h-12 text-black"
               type="email"
               placeholder="Email"
               name=""
               id=""
             />
             <ButtonProps
-              className="w-full mt-5 h-12 bg-[#fbc02d] text-black flex items-center justify-center font-mono font-bold"
+              className="w-full mt-5 cursor-pointer h-12 bg-[#fbc02d] text-[#181c25] flex items-center justify-center font-mono font-bold"
               text="SEND"
             />
           </div>
