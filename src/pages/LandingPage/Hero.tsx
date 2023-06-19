@@ -3,6 +3,7 @@ import { ButtonProps } from "../../common";
 import images from "../../assets/images/image-layer2.png";
 import image2 from "../../assets/hero2.png";
 import image3 from "../../assets/neymar-football-png-23.png";
+import { NavLink } from "react-router-dom";
 
 const Hero = () => {
   const pictureHold = [
@@ -79,8 +80,9 @@ justify-center
             simply looking for the latest updates
           </span>
           {/* button */}
-          <ButtonProps
-            className="flex justify-center items-center w-[170px] bg-[#fbc02d] 
+          <NavLink to="/sign-up">
+            <ButtonProps
+              className="flex justify-center items-center w-[170px] bg-[#fbc02d] 
                 h-[47px]
                 rounded-[3px]
                 uppercase
@@ -91,8 +93,9 @@ justify-center
                 duration-500
                 mt-[12px]
                       "
-            text="get started"
-          />
+              text="get started"
+            />
+          </NavLink>
 
           <div className="cursor-pointer flex items-center mt-5 justify-between w-[30%] h-20 ">
             {pictureHold?.map((el) => (
