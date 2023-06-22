@@ -13,7 +13,7 @@ const OptPage = () => {
       />
       <span className="font-semibold mb-3 text-2xl">Enter OTP</span>
       <p className="text-[rgb(0,0,0,0.5)] text-lg font-medium">
-        We have sent you <strong>OTP</strong> to your e-mail address for
+        We have sent you an <strong>OTP</strong> to your e-mail address for
         verification
       </p>
       <div className="m-6">
@@ -49,7 +49,7 @@ const OptPage = () => {
         next
       </button>
       <b>Didn't Receive the OTP?</b>
-      <strong className="text-[#6ea04b]">Resend Code</strong>
+      <strong className="text-[#6ea04b] cursor-pointer">Resend Code</strong>
 
       {/* for fun (input an otp and click the button) */}
       <div className="absolute right-7 flex justify-center items-center text-white text-2xl capitalize bg-slate-600 w-[200px] h-[200px]">
