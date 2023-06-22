@@ -14,10 +14,14 @@ const SignUp = () => {
     setshow(!show);
   };
 
+  const navigate_to_OTP_Page = () => {
+    navigate("/otp");
+  }; // navigate to OTP Page
+
   const navigate = useNavigate();
   const goBack = () => {
     navigate(-1);
-  };
+  }; // navigate to prevoius page
 
   const [image, setimage] = React.useState("");
   const [previewURl, setpreviewURl] = React.useState(
@@ -92,7 +96,10 @@ const SignUp = () => {
               )}
             </div>
             <div className="w-[90%] flex justify-center items-center">
-              <button className="h-12 mt-5 bg-black p-1 w-[70%] text-white capitalize font-medium rounded-l-md">
+              <button
+                onClick={navigate_to_OTP_Page}
+                className="h-12 mt-5 bg-black p-1 w-[70%] text-white capitalize font-medium rounded-l-md"
+              >
                 sign up
               </button>
               <Link
