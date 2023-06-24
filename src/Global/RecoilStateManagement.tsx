@@ -2,7 +2,7 @@ import { atom } from "recoil";
 
 import { INewUsers } from "../Types/interface/interface";
 
-export const ReadCount = atom({
+export const ReadNewUsers = atom({
   key: "New Users",
-  default: [] as INewUsers[],
+  default: {} as INewUsers,
 });

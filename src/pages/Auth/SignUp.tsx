@@ -12,6 +12,8 @@ import { useForm } from "react-hook-form";
 import swr from "swr";
 import { useMutation } from "@tanstack/react-query";
 import { registerUser } from "../../Api/ApiCalls";
+import { useRecoilState } from "recoil";
+import { ReadNewUsers } from "../../Global/RecoilStateManagement";
 
 const SignUp = () => {
   const [show, setshow] = React.useState(false);
@@ -19,6 +21,12 @@ const SignUp = () => {
   const toggleFn = () => {
     setshow(!show);
   };
+
+  //Recoil state management:
+  const [users, setUsers] = useRecoilState(ReadNewUsers);
+
+  const abc = users.email;
+  console.log(abc);
 
   const navigate_to_OTP_Page = () => {
     navigate("/otp");
