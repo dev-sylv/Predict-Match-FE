@@ -38,14 +38,13 @@ const OptPage = () => {
         onClick={() => {
           setOtp("OTP received");
           setTimeout(() => {
-            setOtp("Proccessing...");
+            setOtp("Processing...");
           }, 2000);
           setTimeout(() => {
-            setOtp("done!");
+            setOtp("Done!");
           }, 4000);
         }}
-        className="w-[300px] mb-5 h-12 rounded-full capitalize text-white font-medium text-lg bg-[#181c25]"
-      >
+        className="w-[300px] mb-5 h-12 rounded-full capitalize text-white font-medium text-lg bg-[#181c25]">
         next
       </button>
       <b>Didn't Receive the OTP?</b>

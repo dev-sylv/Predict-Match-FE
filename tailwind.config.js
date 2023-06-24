@@ -9,7 +9,7 @@ export default {
         bgresult: 'url("./src/assets/images/images.jpg")',
         UpcomingHero: 'url("./src/assets/fb-upcoming.jpg")',
         matchtableBG: 'url("./src/assets/match-bg.jpg")',
-        awardsBG: 'url("./src/assets/awardsBG.jpg")',
+        awardsBG: 'url("./src/assets/undraw_goal_-0-v5v.svg")',
         signupBG: 'url("./src/assets/signup.jpg")',
       },
     },
