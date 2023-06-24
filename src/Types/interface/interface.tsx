@@ -4,9 +4,10 @@ export interface IButton {
 }
 
 export interface Iuser {
-  _id: string;
-  name: string;
-  password: string;
+  _id?: string;
+  name?: string;
+  email?: string;
+  password?: string;
 }
 
 export interface INewUsers {
