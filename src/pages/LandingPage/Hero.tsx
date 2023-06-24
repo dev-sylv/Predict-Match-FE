@@ -37,18 +37,21 @@ const Hero = () => {
       className="w-[100%] h-[620px]  bg-bgi bg-no-repeat bg-cover flex justify-center
      items-center 
      relative
-     ">
+     "
+    >
       {/* dark blur effect */}
       <div
         className="absolute bg-[rgba(0,0,0,0.7)] top-0 w-full
           h-[100%]
-      "></div>
+      "
+      ></div>
 
       <div
         className="flex  items-center w-full
       top-0
           h-[100%]
-          justify-center z-10">
+          justify-center z-10"
+      >
         <div
           className="
         w-[800px]
@@ -56,7 +59,8 @@ const Hero = () => {
         flex-col
         flex
 justify-center
-        ">
+        "
+        >
           <h3
             className="
           font-extrabold
@@ -64,7 +68,8 @@ justify-center
           text-[#ffffff]
           mb-[20px]
           font-mono
-          ">
+          "
+          >
             Your Ultimate Destination for Football Fans!
           </h3>
           <span
@@ -75,18 +80,19 @@ justify-center
            w-[650px]
            font-mono
 
-          ">
+          "
+          >
             Whether you're a die-hard fan, a fantasy football enthusiast, or
             simply looking for the latest updates
           </span>
           {/* button */}
-          <NavLink to="/sign-up">
+          <NavLink to="/sign-up" className={"w-[fit-content]"}>
             <ButtonProps
               className="flex justify-center items-center w-[170px] bg-[#fbc02d] 
                 h-[47px]
                 rounded-[3px]
                 uppercase
-                font-[400]
+                font-[500]
                 cursor-pointer
                 hover:text-white hover:bg-transparent 
                 hover:border hover:border-[#fbc02d] 
@@ -103,7 +109,8 @@ justify-center
                 onClick={() => {
                   getsinglepicture(el?.id);
                 }}
-                className="w-[30%] h-[90%] rounded-full hover:border hover:transform transition-all hover:border-[#fbc02d]  overflow-hidden">
+                className="w-[30%] h-[90%] rounded-full hover:border hover:transform transition-all hover:border-[#fbc02d]  overflow-hidden"
+              >
                 <img className="w-full object-contain" src={el?.image} alt="" />
               </div>
             ))}
