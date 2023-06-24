@@ -8,3 +8,9 @@ export interface Iuser {
   name: string;
   password: string;
 }
+
+export interface INewUsers {
+  name: string;
+  email: string;
+  password: string;
+}
