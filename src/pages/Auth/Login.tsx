@@ -1,4 +1,6 @@
 import React from "react";
+import { yupResolver } from "@hookform/resolvers/yup";
+import yup from "yup";
 import {
   BsArrowLeftCircle,
   BsFillEyeFill,
@@ -6,9 +8,17 @@ import {
 } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { useMutation } from "@tanstack/react-query";
+import { LoginUser } from "../../Api/ApiCalls";
+import { useRecoilValue } from "recoil";
+import { ReadNewUsers } from "../../Global/RecoilStateManagement";
 
 const Login = () => {
   const [show, setshow] = React.useState(false);
+
+  // Reading from my recoil state
+  const AccessUserData = useRecoilValue(ReadNewUsers);
 
   const toggleFn = () => {
     setshow(!show);
@@ -30,6 +40,32 @@ const Login = () => {
     setpreviewURl(url);
   };
 
+  const userschema = yup
+    .object({
+      email: yup.string().email().required("Please enter your email"),
+      password: yup.string().required(),
+    })
+    .required();
+
+  type formData = yup.InferType<typeof userschema>;
+
+  const {
+    handleSubmit,
+    formState: { errors },
+    register,
+  } = useForm<formData>({
+    resolver: yupResolver(userschema),
+  });
+
+  const posting = useMutation({
+    mutationKey: ["Login users"],
+    mutationFn: LoginUser,
+
+    onSuccess: (mydata: any) => {
+      AccessUserData(mydata?.data);
+    },
+  });
+
   return (
     <div className="w-full h-screen bg-[#E6E8EA] flex items-center justify-center">
       <div className="w-[85%] h-[85%] bg-white flex">
@@ -37,8 +73,7 @@ const Login = () => {
           <div className="w-[60%] h-[90%]  flex items-center flex-col">
             <div
               onClick={goBack}
-              className="text-[30px] font-bold   cursor-pointer self-start"
-            >
+              className="text-[30px] font-bold   cursor-pointer self-start">
               <BsArrowLeftCircle />
             </div>
             <div className="flex items-center justify-center flex-col">
@@ -54,8 +89,7 @@ const Login = () => {
             />
             <label
               htmlFor="pix"
-              className="rounded-2xl cursor-pointer bg-slate-600 py-[10px] px-[30px] text-white capitalize"
-            >
+              className="rounded-2xl cursor-pointer bg-slate-600 py-[10px] px-[30px] text-white capitalize">
               <input
                 onChange={captureImage}
                 type="file"
@@ -92,13 +126,11 @@ const Login = () => {
               </button>
               <Link
                 className="h-12 mt-5 bg-slate-600 p-1 w-[30%] text-white capitalize font-medium rounded-r-md flex justify-center items-center"
-                to={"/sign-up"}
-              >
+                to={"/sign-up"}>
                 <button
                   className="
                 capitalize
-                "
-                >
+                ">
                   sign up
                 </button>
               </Link>
