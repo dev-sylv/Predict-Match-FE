@@ -72,9 +72,6 @@ const SignUp = () => {
 
     // If successfull
     onSuccess: (data: any) => {
-      console.log("data of new users: ", data);
-      data.data.data;
-
       Swal.fire({
         title: "User registered sucessfully",
         html: "Redirecting to email for OTP",
@@ -99,9 +96,11 @@ const SignUp = () => {
   });
 
   const Submit = handleSubmit(async (data: any) => {
-    posting.mutate(data);
+    posting.mutate(users);
+    setUsers(users);
+    reset();
   });
-  console.log("error in creating user: ", errors);
+  // console.log("users in creating user: ", users);
 
   // Using recoil to update the state of our application:
   //

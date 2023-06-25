@@ -12,6 +12,14 @@ export const registerUser = async (data: Iuser) => {
   }
 };
 
+export const UserIsVerified = async (userid: string) => {
+  try {
+    return await axios.get(`${url}/api/users/${userid}/verifyuser`);
+  } catch (error) {
+    console.log("error", error);
+  }
+};
+
 export const LoginUser = async (data: Iuser) => {
   try {
     const user = await axios.post(`${url}/api/users/loginuser`, data);
