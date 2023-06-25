@@ -17,7 +17,7 @@ import { ReadNewUsers } from "../../Global/RecoilStateManagement";
 import Swal from "sweetalert2";
 
 const SignUp = () => {
-  const [show, setshow] = React.useState(false);
+  const [show, setshow] = React.useState(true);
 
   const toggleFn = () => {
     setshow(!show);
@@ -33,7 +33,7 @@ const SignUp = () => {
   const navigate = useNavigate();
   const goBack = () => {
     navigate(-1);
-  }; // navigate to prevoius page
+  }; // navigate to previous page
 
   const [image, setimage] = React.useState("");
   const [previewURl, setpreviewURl] = React.useState(
@@ -49,9 +49,9 @@ const SignUp = () => {
   // consuming data
   const schema = yup
     .object({
-      name: yup.string().required("field must be required"),
-      email: yup.string().required("field must be required"),
-      password: yup.string().required("field must be required"),
+      name: yup.string().required("Name must be required"),
+      email: yup.string().required("Please input an email"),
+      password: yup.string().required("Enter a strong password"),
     })
     .required();
   type formData = yup.InferType<typeof schema>;
@@ -67,15 +67,30 @@ const SignUp = () => {
     mutationKey: ["user"],
     mutationFn: registerUser,
 
+    // If successfull
     onSuccess: (data: any) => {
-      console.log("data", data);
+      console.log("data of new users: ", data);
       setUsers(data.data.data);
 
       Swal.fire({
         title: "User registered sucessfully",
-        html: "redirecting to login",
-        timer: 1000,
+        html: "Redirecting to email for OTP",
+        timer: 2000,
+        icon: "success",
         timerProgressBar: true,
+        willClose: () => {
+          navigate("/otp");
+        },
+      });
+    },
+
+    // If an error occured:
+    onError: (error: any) => {
+      Swal.fire({
+        title: "Couldn't create new user",
+        text: error?.response?.data?.message,
+        timer: 2000,
+        icon: "error",
       });
     },
   });
@@ -84,19 +99,14 @@ const SignUp = () => {
     posting.mutate(data);
   });
 
-  console.log("submit", posting);
-
-  console.log("setUsers to test", setUsers);
-
   return (
     <div className="w-full h-screen bg-[#E6E8EA] flex items-center justify-center">
-      <div className="w-[85%] h-[85%] bg-red-500 flex">
-        <div className="w-[50%] h-[100%] flex items-center justify-center">
-          <div className="w-[60%] h-[90%]  flex items-center flex-col">
+      <div className="w-[85%] pt-4 pb-4 bg-red-500 flex">
+        <div className="w-[50%] pt-4 pb-4 flex items-center justify-center">
+          <div className="w-[60%] pt-4 pb-4  flex items-center flex-col">
             <div
               onClick={goBack}
-              className="text-[30px] font-bold   cursor-pointer self-start"
-            >
+              className="text-[30px] font-bold   cursor-pointer self-start">
               <BsArrowLeftCircle />
             </div>
             <div className="flex items-center justify-center flex-col">
@@ -112,8 +122,7 @@ const SignUp = () => {
             />
             <label
               htmlFor="pix"
-              className="rounded-2xl cursor-pointer bg-[#fbc02d] py-[10px] px-[30px] text-white capitalize"
-            >
+              className="rounded-2xl cursor-pointer bg-[#fbc02d] py-[10px] px-[30px] text-white capitalize">
               <input
                 onChange={captureImage}
                 type="file"
@@ -129,48 +138,57 @@ const SignUp = () => {
               {...register("name")}
               placeholder="name"
             />
+            <p className="w-[90%] text-red capitalize">
+              {errors.name && errors.name.message}
+            </p>
+
             <input
-              className="w-[90%] h-12 m-3 pl-4  outline-1  outline-[#fbc02d] rounded-md  border border-[#10475a] "
+              className="w-[90%] h-12 m-3 pl-4  outline-1  outline-[#fbc02d] rounded-md  border border-[#10475a] capitalize"
               type="email"
               placeholder="email"
               {...register("email")}
             />
+            <p className="w-[90%] text-red capitalize">
+              {errors.email && errors.email.message}
+            </p>
+
             <div className="w-[90%] flex justify-center items-center outline-1  outline-[rgba(0,0,0,0.6)] rounded-md bg-white pl-1 border border-[#10475a]">
               <input
-                className="w-full h-full outline-none m-3 bg-transparent "
+                className="w-full h-full outline-none m-3 bg-transparent capitalize"
                 type={show ? "password" : "text"}
                 placeholder="password"
                 {...register("password")}
               />
+              <p className="w-[90%] text-red capitalize">
+                {errors.password && errors.password.message}
+              </p>
               {show ? (
                 <div onClick={toggleFn} className="mr-3 cursor-pointer">
-                  <BsFillEyeFill />
+                  <BsFillEyeSlashFill />
                 </div>
               ) : (
                 <div onClick={toggleFn} className="mr-3 cursor-pointer">
-                  <BsFillEyeSlashFill />
+                  <BsFillEyeFill />
                 </div>
               )}
             </div>
             <div className="w-[90%] flex justify-center items-center">
               <button
                 onClick={Submit}
-                className="h-12 mt-5 bg-black p-1 w-[70%] text-white capitalize font-medium rounded-l-md"
-              >
+                className="h-12 mt-5 bg-black p-1 w-[70%] text-white capitalize font-medium rounded-l-md">
                 sign up
               </button>
               <Link
                 className="h-12 mt-5 bg-slate-600 p-1 w-[30%] text-white capitalize font-medium rounded-r-md flex justify-center items-center"
-                to={"/login"}
-              >
+                to={"/login"}>
                 <button className="capitalize">sign in</button>
               </Link>
             </div>
           </div>
         </div>
 
-        <div className="w-[50%] h-[100%] flex items-center bg-orange-500 object-contain justify-center">
-          <div className="w-[50%] h-[50%] rounded-xl object-cover bg-awardsBG"></div>
+        <div className="w-[50%] pt-4 pb-4 flex items-center bg-pink-500 object-contain justify-center">
+          <div className="w-[50%] pt-4 pb-4 rounded-xl object-cover bg-awardsBG"></div>
         </div>
       </div>
     </div>
