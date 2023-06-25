@@ -16,6 +16,12 @@ import { useRecoilState } from "recoil";
 import { ReadNewUsers } from "../../Global/RecoilStateManagement";
 import Swal from "sweetalert2";
 
+interface INewUsers {
+  name: string;
+  email: string;
+  password: string;
+}
+
 const SignUp = () => {
   const [show, setshow] = React.useState(true);
 
@@ -26,11 +32,8 @@ const SignUp = () => {
   //Recoil state management:
   const [users, setUsers] = useRecoilState(ReadNewUsers);
 
-  const navigate_to_OTP_Page = () => {
-    navigate("/otp");
-  }; // navigate to OTP Page
-
   const navigate = useNavigate();
+
   const goBack = () => {
     navigate(-1);
   }; // navigate to previous page
@@ -70,7 +73,7 @@ const SignUp = () => {
     // If successfull
     onSuccess: (data: any) => {
       console.log("data of new users: ", data);
-      setUsers(data.data.data);
+      data.data.data;
 
       Swal.fire({
         title: "User registered sucessfully",
@@ -98,6 +101,10 @@ const SignUp = () => {
   const Submit = handleSubmit(async (data: any) => {
     posting.mutate(data);
   });
+  console.log("error in creating user: ", errors);
+
+  // Using recoil to update the state of our application:
+  //
 
   return (
     <div className="w-full h-screen bg-[#E6E8EA] flex items-center justify-center">
@@ -138,30 +145,28 @@ const SignUp = () => {
               {...register("name")}
               placeholder="name"
             />
-            <p className="w-[90%] text-red capitalize">
+            <p className="w-[90%] mb-1 text-red-700 capitalize">
               {errors.name && errors.name.message}
             </p>
 
             <input
-              className="w-[90%] h-12 m-3 pl-4  outline-1  outline-[#fbc02d] rounded-md  border border-[#10475a] capitalize"
+              className="w-[90%] h-12 m-3 pl-4  outline-1  outline-[#fbc02d] rounded-md  border border-[#10475a]"
               type="email"
-              placeholder="email"
+              placeholder="Email"
               {...register("email")}
             />
-            <p className="w-[90%] text-red capitalize">
+            <p className="w-[90%] mb-1 text-red-700 capitalize">
               {errors.email && errors.email.message}
             </p>
 
             <div className="w-[90%] flex justify-center items-center outline-1  outline-[rgba(0,0,0,0.6)] rounded-md bg-white pl-1 border border-[#10475a]">
               <input
-                className="w-full h-full outline-none m-3 bg-transparent capitalize"
+                className="w-full h-full outline-none m-3 bg-transparent"
                 type={show ? "password" : "text"}
-                placeholder="password"
+                placeholder="Password"
                 {...register("password")}
               />
-              <p className="w-[90%] text-red capitalize">
-                {errors.password && errors.password.message}
-              </p>
+
               {show ? (
                 <div onClick={toggleFn} className="mr-3 cursor-pointer">
                   <BsFillEyeSlashFill />
@@ -172,6 +177,9 @@ const SignUp = () => {
                 </div>
               )}
             </div>
+            <p className="w-[90%] mt-1 mb-1 text-red-700 capitalize">
+              {errors.password && errors.password.message}
+            </p>
             <div className="w-[90%] flex justify-center items-center">
               <button
                 onClick={Submit}
