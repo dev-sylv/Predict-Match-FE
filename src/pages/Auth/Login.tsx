@@ -1,6 +1,6 @@
 import React from "react";
-import { yupResolver } from "@hookform/resolvers/yup";
 import yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 import {
   BsArrowLeftCircle,
   BsFillEyeFill,
@@ -54,6 +54,7 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
     register,
+    reset,
   } = useForm<formData>({
     resolver: yupResolver(userschema),
   });
@@ -77,6 +78,23 @@ const Login = () => {
         },
       });
     },
+
+    onError: (error: any) => {
+      console.log("this is error", error);
+
+      // handle error here
+      Swal.fire({
+        title: "Login failed",
+        text: error?.response?.data?.message,
+        icon: "error",
+        timer: 1000,
+      });
+    },
+  });
+
+  const Submit = handleSubmit(async (data) => {
+    posting.mutate(AccessUserData);
+    reset();
   });
 
   return (
@@ -113,10 +131,13 @@ const Login = () => {
             </label>
 
             <input
-              className="w-[90%] h-12 m-3 pl-4  outline-1  outline-[rgba(0,0,0,0.6)] rounded-md  border border-[#10475a] capitalize"
+              className="w-[90%] h-12 m-3 pl-4  outline-1  outline-[rgba(0,0,0,0.6)] rounded-md  border border-[#10475a] "
               type="email"
-              placeholder="email"
+              placeholder="Email"
             />
+            <p className="w-[90%] mb-1 text-red-700 capitalize">
+              {errors.email && errors.email.message}
+            </p>
             <div className="w-[90%] flex justify-center items-center outline-1  outline-[rgba(0,0,0,0.6)] rounded-md bg-white pl-1 border border-[#10475a]">
               <input
                 className="w-full h-full outline-none m-3 bg-transparent capitalize"
@@ -133,6 +154,10 @@ const Login = () => {
                 </div>
               )}
             </div>
+            <p className="w-[90%] mt-1 mb-1 text-red-700 capitalize">
+              {errors.password && errors.password.message}
+            </p>
+
             <div className="w-[90%] flex justify-center items-center">
               <button className="h-12 mt-5 bg-black p-1 w-[70%] text-white capitalize font-medium rounded-l-md flex justify-center items-center">
                 sign in
@@ -141,6 +166,7 @@ const Login = () => {
                 className="h-12 mt-5 bg-slate-600 p-1 w-[30%] text-white capitalize font-medium rounded-r-md flex justify-center items-center"
                 to={"/sign-up"}>
                 <button
+                  onClick={Submit}
                   className="
                 capitalize
                 ">
