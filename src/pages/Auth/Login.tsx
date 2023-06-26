@@ -13,6 +13,7 @@ import { useMutation } from "@tanstack/react-query";
 import { LoginUser } from "../../Api/ApiCalls";
 import { useRecoilValue } from "recoil";
 import { ReadNewUsers } from "../../Global/RecoilStateManagement";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const [show, setshow] = React.useState(false);
@@ -62,7 +63,19 @@ const Login = () => {
     mutationFn: LoginUser,
 
     onSuccess: (mydata: any) => {
-      AccessUserData(mydata?.data);
+      Swal.fire({
+        icon: "success",
+        title: "Login succesful",
+        html: "Taking you to your dashboard",
+        timer: 1200,
+
+        didOpen: () => {
+          Swal.showLoading();
+        },
+        willClose: () => {
+          navigate("/loading");
+        },
+      });
     },
   });
 
