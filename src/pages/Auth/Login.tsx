@@ -1,6 +1,4 @@
 import React from "react";
-import yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
 import {
   BsArrowLeftCircle,
   BsFillEyeFill,
@@ -14,12 +12,15 @@ import { LoginUser } from "../../Api/ApiCalls";
 import { useRecoilValue } from "recoil";
 import { ReadNewUsers } from "../../Global/RecoilStateManagement";
 import Swal from "sweetalert2";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 const Login = () => {
-  const [show, setshow] = React.useState(false);
+  const [show, setshow] = React.useState(true);
 
   // Reading from my recoil state
   const AccessUserData = useRecoilValue(ReadNewUsers);
+  console.log("Accessuser data: ", AccessUserData);
 
   const toggleFn = () => {
     setshow(!show);
@@ -98,20 +99,20 @@ const Login = () => {
   });
 
   return (
-    <div className="w-full h-screen bg-[#E6E8EA] flex items-center justify-center">
-      <div className="w-[85%] h-[85%] bg-white flex">
+    <div className="w-full h-screen  flex items-center justify-center">
+      <div className="w-[85%] h-[90%] flex">
         <div className="w-[50%] h-[100%] flex items-center justify-center">
           <div className="w-[60%] h-[90%]  flex items-center flex-col">
             <div
               onClick={goBack}
-              className="text-[30px] font-bold   cursor-pointer self-start">
+              className="text-[30px] font-bold cursor-pointer self-start">
               <BsArrowLeftCircle />
             </div>
             <div className="flex items-center justify-center flex-col">
-              <h1 className="font-semibold text-2xl m-2">Sign Up</h1>
+              <h1 className="font-semibold text-2xl m-2">Sign In</h1>
               <p className="text-sm font-medium text-[rgba(0,0,0,0.6)]">
                 {" "}
-                Join our community of football enthusiasts
+                Start making healthy football predictions
               </p>
             </div>
             <img
@@ -120,7 +121,7 @@ const Login = () => {
             />
             <label
               htmlFor="pix"
-              className="rounded-2xl cursor-pointer bg-slate-600 py-[10px] px-[30px] text-white capitalize">
+              className="rounded-2xl bg-[#fbc02d] cursor-pointer py-[10px] px-[30px] text-white capitalize">
               <input
                 onChange={captureImage}
                 type="file"
@@ -131,14 +132,14 @@ const Login = () => {
             </label>
 
             <input
-              className="w-[90%] h-12 m-3 pl-4  outline-1  outline-[rgba(0,0,0,0.6)] rounded-md  border border-[#10475a] "
+              className="w-[90%] h-12 m-3 pl-4  outline-1 outline-[#fbc02d] rounded-md  border border-[#10475a] "
               type="email"
               placeholder="Email"
             />
             <p className="w-[90%] mb-1 text-red-700 capitalize">
               {errors.email && errors.email.message}
             </p>
-            <div className="w-[90%] flex justify-center items-center outline-1  outline-[rgba(0,0,0,0.6)] rounded-md bg-white pl-1 border border-[#10475a]">
+            <div className="w-[90%] flex justify-center items-center outline-1 outline-[#fbc02d] rounded-md bg-white pl-1 border border-[#10475a]">
               <input
                 className="w-full h-full outline-none m-3 bg-transparent capitalize"
                 type={show ? "password" : "text"}
@@ -146,11 +147,11 @@ const Login = () => {
               />
               {show ? (
                 <div onClick={toggleFn} className="mr-3 cursor-pointer">
-                  <BsFillEyeFill />
+                  <BsFillEyeSlashFill />
                 </div>
               ) : (
                 <div onClick={toggleFn} className="mr-3 cursor-pointer">
-                  <BsFillEyeSlashFill />
+                  <BsFillEyeFill />
                 </div>
               )}
             </div>
@@ -159,11 +160,11 @@ const Login = () => {
             </p>
 
             <div className="w-[90%] flex justify-center items-center">
-              <button className="h-12 mt-5 bg-black p-1 w-[70%] text-white capitalize font-medium rounded-l-md flex justify-center items-center">
+              <button className="h-12 mt-5 bg-[#fbc02d] p-1 w-[70%] text-white capitalize font-medium rounded-l-md flex justify-center items-center">
                 sign in
               </button>
               <Link
-                className="h-12 mt-5 bg-slate-600 p-1 w-[30%] text-white capitalize font-medium rounded-r-md flex justify-center items-center"
+                className="h-12 mt-5 bg-black p-1 w-[30%] text-white capitalize font-medium rounded-r-md flex justify-center items-center"
                 to={"/sign-up"}>
                 <button
                   onClick={Submit}
@@ -177,8 +178,8 @@ const Login = () => {
           </div>
         </div>
 
-        <div className="w-[50%] h-[100%] bg-slate-600 flex items-center justify-center">
-          <div className="w-[95%] h-[95%] rounded-xl bg-awardsBG"></div>
+        <div className="w-[50%] h-[100%] flex items-center justify-center">
+          <div className="w-[50%] h-[50%] rounded-xl bg-no-repeat bg-cover bg-signupBG"></div>
         </div>
       </div>
     </div>
