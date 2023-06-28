@@ -150,7 +150,7 @@ const SignUp = () => {
             </label>
 
             <input
-              className="w-[90%] pb-2 pt-2 mt-2 pl-4  outline-1  outline-[rgba(0,0,0,0.6)] rounded-md  border border-[#10475a] capitalize"
+              className="w-[90%] pb-2 pt-2 mt-2 pl-4  outline-1  outline-[rgba(0,0,0,0.6)] rounded-md h-[50px] border border-[#10475a] capitalize"
               type="text"
               {...register("name")}
               placeholder="name"
@@ -159,7 +159,7 @@ const SignUp = () => {
               {errors.name && errors.name.message}
             </p>
             <input
-              className="w-[90%] pb-2 pt-2 mt-2 pl-4 outline-1 outline-[#fbc02d] rounded-md  border border-[#10475a]"
+              className="w-[90%] h-[50px]  pb-2 pt-2 mt-2 pl-4 outline-1 outline-[#fbc02d] rounded-md  border border-[#10475a]"
               type="email"
               placeholder="Email"
               {...register("email")}
@@ -167,7 +167,7 @@ const SignUp = () => {
             <p className="w-[90%] mb-1 text-red-700 capitalize">
               {errors.email && errors.email.message}
             </p>
-            <div className="w-[90%] pb-2 pt-2 mt-2 flex justify-center items-center outline-1  outline-[rgba(0,0,0,0.6)] rounded-md bg-white pl-4 border border-[#10475a]">
+            <div className="w-[90%] pb-2 pt-2 mt-2 flex justify-center items-center h-[50px]  outline-1  outline-[rgba(0,0,0,0.6)] rounded-md bg-white pl-4 border border-[#10475a]">
               <input
                 className="w-full h-full outline-none bg-transparent"
                 type={show ? "password" : "text"}
