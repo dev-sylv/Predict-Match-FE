@@ -59,13 +59,6 @@ const SignUp = () => {
     .required();
   type formData = yup.InferType<typeof schema>;
 
-  // const {
-  //   handleSubmit,
-  //   formState: { errors },
-  //   reset,
-  //   register,
-  // } = useForm<formData>({ resolver: yupResolver(schema) });
-
   const {
     handleSubmit,
     formState: { errors },
@@ -80,7 +73,7 @@ const SignUp = () => {
     mutationFn: registerUser,
 
     // If successfull
-    onSuccess: (data: any) => {
+    onSuccess: () => {
       Swal.fire({
         title: "User registered sucessfully",
         html: "Redirecting to email for OTP",

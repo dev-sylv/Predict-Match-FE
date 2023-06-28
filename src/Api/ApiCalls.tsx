@@ -15,7 +15,7 @@ export const UserIsVerified = async (userid: string) => {
     .then((res) => res.data);
 };
 
-export const LoginUser = async (data: any) => {
+export const LoginUser = async (data: Iuser) => {
   return await axios
     .post(`${url}/api/users/loginuser`, data)
     .then((res) => res.data);
