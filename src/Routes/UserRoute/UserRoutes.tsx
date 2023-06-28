@@ -1,7 +1,7 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import { HomeLayout } from "../../Components/Layout";
-import { HomeScreen, Login, OtpPage, SignUp } from "../../pages";
+import { HomeScreen, Loading, Login, OtpPage, SignUp } from "../../pages";
 
 const userRoute = createBrowserRouter([
   {
@@ -25,6 +25,10 @@ const userRoute = createBrowserRouter([
   {
     path: "/otp",
     element: <OtpPage />,
+  },
+  {
+    path: "/loading",
+    element: <Loading />,
   },
 ]);
 

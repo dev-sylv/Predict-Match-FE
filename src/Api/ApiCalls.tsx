@@ -5,8 +5,16 @@ import { Iuser } from "../Types/interface/interface";
 
 export const registerUser = async (data: Iuser) => {
   try {
-    const post = await axios.post(`${local}/api/users/registeruser`, data);
+    const post = await axios.post(`${url}/api/users/registeruser`, data);
     return post;
+  } catch (error) {
+    console.log("error", error);
+  }
+};
+
+export const UserIsVerified = async (userid: string) => {
+  try {
+    return await axios.get(`${url}/api/users/${userid}/verifyuser`);
   } catch (error) {
     console.log("error", error);
   }

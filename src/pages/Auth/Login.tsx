@@ -1,4 +1,6 @@
 import React from "react";
+import yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 import {
   BsArrowLeftCircle,
   BsFillEyeFill,
@@ -6,9 +8,18 @@ import {
 } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { useMutation } from "@tanstack/react-query";
+import { LoginUser } from "../../Api/ApiCalls";
+import { useRecoilValue } from "recoil";
+import { ReadNewUsers } from "../../Global/RecoilStateManagement";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const [show, setshow] = React.useState(false);
+
+  // Reading from my recoil state
+  const AccessUserData = useRecoilValue(ReadNewUsers);
 
   const toggleFn = () => {
     setshow(!show);
@@ -30,6 +41,62 @@ const Login = () => {
     setpreviewURl(url);
   };
 
+  const userschema = yup
+    .object({
+      email: yup.string().email().required("Please enter your email"),
+      password: yup.string().required(),
+    })
+    .required();
+
+  type formData = yup.InferType<typeof userschema>;
+
+  const {
+    handleSubmit,
+    formState: { errors },
+    register,
+    reset,
+  } = useForm<formData>({
+    resolver: yupResolver(userschema),
+  });
+
+  const posting = useMutation({
+    mutationKey: ["Login users"],
+    mutationFn: LoginUser,
+
+    onSuccess: (mydata: any) => {
+      Swal.fire({
+        icon: "success",
+        title: "Login succesful",
+        html: "Taking you to your dashboard",
+        timer: 1200,
+
+        didOpen: () => {
+          Swal.showLoading();
+        },
+        willClose: () => {
+          navigate("/loading");
+        },
+      });
+    },
+
+    onError: (error: any) => {
+      console.log("this is error", error);
+
+      // handle error here
+      Swal.fire({
+        title: "Login failed",
+        text: error?.response?.data?.message,
+        icon: "error",
+        timer: 1000,
+      });
+    },
+  });
+
+  const Submit = handleSubmit(async (data) => {
+    posting.mutate(AccessUserData);
+    reset();
+  });
+
   return (
     <div className="w-full h-screen bg-[#E6E8EA] flex items-center justify-center">
       <div className="w-[85%] h-[85%] bg-white flex">
@@ -37,8 +104,7 @@ const Login = () => {
           <div className="w-[60%] h-[90%]  flex items-center flex-col">
             <div
               onClick={goBack}
-              className="text-[30px] font-bold   cursor-pointer self-start"
-            >
+              className="text-[30px] font-bold   cursor-pointer self-start">
               <BsArrowLeftCircle />
             </div>
             <div className="flex items-center justify-center flex-col">
@@ -54,8 +120,7 @@ const Login = () => {
             />
             <label
               htmlFor="pix"
-              className="rounded-2xl cursor-pointer bg-slate-600 py-[10px] px-[30px] text-white capitalize"
-            >
+              className="rounded-2xl cursor-pointer bg-slate-600 py-[10px] px-[30px] text-white capitalize">
               <input
                 onChange={captureImage}
                 type="file"
@@ -66,10 +131,13 @@ const Login = () => {
             </label>
 
             <input
-              className="w-[90%] h-12 m-3 pl-4  outline-1  outline-[rgba(0,0,0,0.6)] rounded-md  border border-[#10475a] capitalize"
+              className="w-[90%] h-12 m-3 pl-4  outline-1  outline-[rgba(0,0,0,0.6)] rounded-md  border border-[#10475a] "
               type="email"
-              placeholder="email"
+              placeholder="Email"
             />
+            <p className="w-[90%] mb-1 text-red-700 capitalize">
+              {errors.email && errors.email.message}
+            </p>
             <div className="w-[90%] flex justify-center items-center outline-1  outline-[rgba(0,0,0,0.6)] rounded-md bg-white pl-1 border border-[#10475a]">
               <input
                 className="w-full h-full outline-none m-3 bg-transparent capitalize"
@@ -86,19 +154,22 @@ const Login = () => {
                 </div>
               )}
             </div>
+            <p className="w-[90%] mt-1 mb-1 text-red-700 capitalize">
+              {errors.password && errors.password.message}
+            </p>
+
             <div className="w-[90%] flex justify-center items-center">
               <button className="h-12 mt-5 bg-black p-1 w-[70%] text-white capitalize font-medium rounded-l-md flex justify-center items-center">
                 sign in
               </button>
               <Link
                 className="h-12 mt-5 bg-slate-600 p-1 w-[30%] text-white capitalize font-medium rounded-r-md flex justify-center items-center"
-                to={"/sign-up"}
-              >
+                to={"/sign-up"}>
                 <button
+                  onClick={Submit}
                   className="
                 capitalize
-                "
-                >
+                ">
                   sign up
                 </button>
               </Link>
