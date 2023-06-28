@@ -79,12 +79,12 @@ const Login = () => {
           navigate("/loading");
         },
       });
-      console.log("data", mydata);
+      // console.log("data", mydata);
       reset();
     },
 
     onError: (error: any) => {
-      console.log("this is error", error);
+      // console.log("this is error", error);
       // handle error here
 
       Swal.fire({

@@ -4,27 +4,19 @@ import axios from "axios";
 import { Iuser } from "../Types/interface/interface";
 
 export const registerUser = async (data: Iuser) => {
-  try {
-    const post = await axios.post(`${url}/api/users/registeruser`, data);
-    return post;
-  } catch (error) {
-    return error;
-  }
+  return await axios
+    .post(`${url}/api/users/registeruser`, data)
+    .then((res) => res.data);
 };
 
 export const UserIsVerified = async (userid: string) => {
-  try {
-    return await axios.get(`${url}/api/users/${userid}/verifyuser`);
-  } catch (error) {
-    return error;
-  }
+  return await axios
+    .get(`${url}/api/users/${userid}/verifyuser`)
+    .then((res) => res.data);
 };
 
 export const LoginUser = async (data: any) => {
-  try {
-    const user = await axios.post(`${url}/api/users/loginuser`, data);
-    return user;
-  } catch (error) {
-    return error;
-  }
+  return await axios
+    .post(`${url}/api/users/loginuser`, data)
+    .then((res) => res.data);
 };
