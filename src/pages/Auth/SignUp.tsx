@@ -185,6 +185,7 @@ const SignUp = () => {
                 <button className="capitalize">sign in</button>
               </Link>
             </div>
+            <p>Sign up with Google here</p>
           </div>
         </div>
 
