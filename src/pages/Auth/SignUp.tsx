@@ -95,7 +95,8 @@ const SignUp = () => {
           <div className="w-[60%] h-[90%]  flex items-center flex-col">
             <div
               onClick={goBack}
-              className="text-[30px] font-bold   cursor-pointer self-start">
+              className="text-[30px] font-bold   cursor-pointer self-start"
+            >
               <BsArrowLeftCircle />
             </div>
             <div className="flex items-center justify-center flex-col">
@@ -111,7 +112,8 @@ const SignUp = () => {
             />
             <label
               htmlFor="pix"
-              className="rounded-2xl cursor-pointer bg-[#fbc02d] py-[10px] px-[30px] text-white capitalize">
+              className="rounded-2xl cursor-pointer bg-[#fbc02d] py-[10px] px-[30px] text-white capitalize"
+            >
               <input
                 onChange={captureImage}
                 type="file"
@@ -142,23 +144,25 @@ const SignUp = () => {
               />
               {show ? (
                 <div onClick={toggleFn} className="mr-3 cursor-pointer">
-                  <BsFillEyeSlashFill />
+                  <BsFillEyeFill />
                 </div>
               ) : (
                 <div onClick={toggleFn} className="mr-3 cursor-pointer">
-                  <BsFillEyeFill />
+                  <BsFillEyeSlashFill />
                 </div>
               )}
             </div>
             <div className="w-[90%] flex justify-center items-center">
               <button
                 onClick={Submit}
-                className="h-12 mt-5 bg-black p-1 w-[70%] text-white capitalize font-medium rounded-l-md">
+                className="h-12 mt-5 bg-black p-1 w-[70%] text-white capitalize font-medium rounded-l-md"
+              >
                 sign up
               </button>
               <Link
                 className="h-12 mt-5 bg-slate-600 p-1 w-[30%] text-white capitalize font-medium rounded-r-md flex justify-center items-center"
-                to={"/login"}>
+                to={"/login"}
+              >
                 <button className="capitalize">sign in</button>
               </Link>
             </div>

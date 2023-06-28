@@ -78,11 +78,11 @@ const Login = () => {
               />
               {show ? (
                 <div onClick={toggleFn} className="mr-3 cursor-pointer">
-                  <BsFillEyeSlashFill />
+                  <BsFillEyeFill />
                 </div>
               ) : (
                 <div onClick={toggleFn} className="mr-3 cursor-pointer">
-                  <BsFillEyeFill />
+                  <BsFillEyeSlashFill />
                 </div>
               )}
             </div>
