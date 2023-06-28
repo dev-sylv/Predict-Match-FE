@@ -14,6 +14,7 @@ import { registerUser } from "../../Api/ApiCalls";
 import { useRecoilState } from "recoil";
 import { ReadNewUsers } from "../../Global/RecoilStateManagement";
 import Swal from "sweetalert2";
+import GoogleSignIn from "../../Global/GoogleSignIn";
 
 interface INewUsers {
   name: string;
@@ -185,7 +186,8 @@ const SignUp = () => {
                 <button className="capitalize">sign in</button>
               </Link>
             </div>
-            <p>Sign up with Google here</p>
+
+            {/* <GoogleSignIn /> */}
           </div>
         </div>
 
