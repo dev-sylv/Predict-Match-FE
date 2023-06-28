@@ -9,12 +9,12 @@ import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import swr from "swr";
 import { useMutation } from "@tanstack/react-query";
 import { registerUser } from "../../Api/ApiCalls";
 import { useRecoilState } from "recoil";
 import { ReadNewUsers } from "../../Global/RecoilStateManagement";
 import Swal from "sweetalert2";
+import GoogleSignIn from "../../Global/GoogleSignIn";
 
 interface INewUsers {
   name: string;
@@ -102,14 +102,11 @@ const SignUp = () => {
   });
   // console.log("users in creating user: ", users);
 
-  // Using recoil to update the state of our application:
-  //
-
   return (
-    <div className="w-full h-screen bg-[#E6E8EA] flex items-center justify-center">
-      <div className="w-[85%] pt-4 pb-4 bg-red-500 flex">
-        <div className="w-[50%] pt-4 pb-4 flex items-center justify-center">
-          <div className="w-[60%] pt-4 pb-4  flex items-center flex-col">
+    <div className="w-full h-screen flex items-center justify-center">
+      <div className="w-[85%] h-[95%] flex">
+        <div className="w-[50%]  pt-5 pb-5 flex items-center justify-center">
+          <div className="w-[60%]  h-[90%]  flex items-center flex-col">
             <div
               onClick={goBack}
               className="text-[30px] font-bold   cursor-pointer self-start">
@@ -139,7 +136,7 @@ const SignUp = () => {
             </label>
 
             <input
-              className="w-[90%] h-12 m-3 pl-4  outline-1  outline-[rgba(0,0,0,0.6)] rounded-md  border border-[#10475a] capitalize"
+              className="w-[90%] pb-2 pt-2 mt-2 pl-4  outline-1  outline-[rgba(0,0,0,0.6)] rounded-md  border border-[#10475a] capitalize"
               type="text"
               {...register("name")}
               placeholder="name"
@@ -147,9 +144,8 @@ const SignUp = () => {
             <p className="w-[90%] mb-1 text-red-700 capitalize">
               {errors.name && errors.name.message}
             </p>
-
             <input
-              className="w-[90%] h-12 m-3 pl-4  outline-1  outline-[#fbc02d] rounded-md  border border-[#10475a]"
+              className="w-[90%] pb-2 pt-2 mt-2 pl-4 outline-1 outline-[#fbc02d] rounded-md  border border-[#10475a]"
               type="email"
               placeholder="Email"
               {...register("email")}
@@ -157,10 +153,9 @@ const SignUp = () => {
             <p className="w-[90%] mb-1 text-red-700 capitalize">
               {errors.email && errors.email.message}
             </p>
-
-            <div className="w-[90%] flex justify-center items-center outline-1  outline-[rgba(0,0,0,0.6)] rounded-md bg-white pl-1 border border-[#10475a]">
+            <div className="w-[90%] pb-2 pt-2 mt-2 flex justify-center items-center outline-1  outline-[rgba(0,0,0,0.6)] rounded-md bg-white pl-4 border border-[#10475a]">
               <input
-                className="w-full h-full outline-none m-3 bg-transparent"
+                className="w-full h-full outline-none bg-transparent"
                 type={show ? "password" : "text"}
                 placeholder="Password"
                 {...register("password")}
@@ -182,20 +177,22 @@ const SignUp = () => {
             <div className="w-[90%] flex justify-center items-center">
               <button
                 onClick={Submit}
-                className="h-12 mt-5 bg-black p-1 w-[70%] text-white capitalize font-medium rounded-l-md">
+                className="h-12 mt-5 bg-[#fbc02d] p-1 w-[70%] text-white capitalize font-medium rounded-l-md">
                 sign up
               </button>
               <Link
-                className="h-12 mt-5 bg-slate-600 p-1 w-[30%] text-white capitalize font-medium rounded-r-md flex justify-center items-center"
+                className="h-12 mt-5 bg-black p-1 w-[30%] text-white capitalize font-medium rounded-r-md flex justify-center items-center"
                 to={"/login"}>
                 <button className="capitalize">sign in</button>
               </Link>
             </div>
+
+            {/* <GoogleSignIn /> */}
           </div>
         </div>
 
-        <div className="w-[50%] pt-4 pb-4 flex items-center bg-pink-500 object-contain justify-center">
-          <div className="w-[50%] pt-4 pb-4 rounded-xl object-cover bg-awardsBG"></div>
+        <div className="w-[50%] h-[100%] flex items-center justify-center">
+          <div className="w-[50%] h-[50%]  rounded-xl bg-no-repeat bg-contain bg-awardsBG"></div>
         </div>
       </div>
     </div>
