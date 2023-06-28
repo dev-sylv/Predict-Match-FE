@@ -29,6 +29,7 @@
     "react-scroll": "^1.8.9",
     "react-slick": "^0.29.0",
     "recoil": "^0.7.7",
+    "sweetalert2": "^11.7.12",
     "swr": "^2.1.5",
     "yup": "^1.2.0"
   },

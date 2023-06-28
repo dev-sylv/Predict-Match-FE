@@ -8,7 +8,7 @@ export const registerUser = async (data: Iuser) => {
     const post = await axios.post(`${url}/api/users/registeruser`, data);
     return post;
   } catch (error) {
-    console.log("error", error);
+    return error;
   }
 };
 
@@ -16,15 +16,15 @@ export const UserIsVerified = async (userid: string) => {
   try {
     return await axios.get(`${url}/api/users/${userid}/verifyuser`);
   } catch (error) {
-    console.log("error", error);
+    return error;
   }
 };
 
-export const LoginUser = async (data: Iuser) => {
+export const LoginUser = async (data: any) => {
   try {
     const user = await axios.post(`${url}/api/users/loginuser`, data);
     return user;
   } catch (error) {
-    console.log("Error", error);
+    return error;
   }
 };

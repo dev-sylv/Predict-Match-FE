@@ -20,7 +20,7 @@ const Login = () => {
 
   // Reading from my recoil state
   const AccessUserData = useRecoilValue(ReadNewUsers);
-  console.log("Accessuser data: ", AccessUserData);
+  // console.log("Accessuser data: ", AccessUserData);
 
   const toggleFn = () => {
     setshow(!show);
@@ -74,16 +74,19 @@ const Login = () => {
         didOpen: () => {
           Swal.showLoading();
         },
+
         willClose: () => {
           navigate("/loading");
         },
       });
+      console.log("data", mydata);
+      reset();
     },
 
     onError: (error: any) => {
       console.log("this is error", error);
-
       // handle error here
+
       Swal.fire({
         title: "Login failed",
         text: error?.response?.data?.message,
@@ -93,9 +96,8 @@ const Login = () => {
     },
   });
 
-  const Submit = handleSubmit(async (data) => {
-    posting.mutate(AccessUserData);
-    reset();
+  const Submit = handleSubmit(async (data: any) => {
+    posting.mutate(data);
   });
 
   return (
@@ -105,7 +107,8 @@ const Login = () => {
           <div className="w-[60%] h-[90%]  flex items-center flex-col">
             <div
               onClick={goBack}
-              className="text-[30px] font-bold cursor-pointer self-start">
+              className="text-[30px] font-bold cursor-pointer self-start"
+            >
               <BsArrowLeftCircle />
             </div>
             <div className="flex items-center justify-center flex-col">
@@ -121,7 +124,8 @@ const Login = () => {
             />
             <label
               htmlFor="pix"
-              className="rounded-2xl bg-[#fbc02d] cursor-pointer py-[10px] px-[30px] text-white capitalize">
+              className="rounded-2xl bg-[#fbc02d] cursor-pointer py-[10px] px-[30px] text-white capitalize"
+            >
               <input
                 onChange={captureImage}
                 type="file"
@@ -135,6 +139,7 @@ const Login = () => {
               className="w-[90%] h-12 m-3 pl-4  outline-1 outline-[#fbc02d] rounded-md  border border-[#10475a] "
               type="email"
               placeholder="Email"
+              {...register("email")}
             />
             <p className="w-[90%] mb-1 text-red-700 capitalize">
               {errors.email && errors.email.message}
@@ -144,6 +149,7 @@ const Login = () => {
                 className="w-full h-full outline-none m-3 bg-transparent capitalize"
                 type={show ? "password" : "text"}
                 placeholder="password"
+                {...register("password")}
               />
               {show ? (
                 <div onClick={toggleFn} className="mr-3 cursor-pointer">
@@ -160,17 +166,21 @@ const Login = () => {
             </p>
 
             <div className="w-[90%] flex justify-center items-center">
-              <button className="h-12 mt-5 bg-[#fbc02d] p-1 w-[70%] text-white capitalize font-medium rounded-l-md flex justify-center items-center">
+              <button
+                onClick={Submit}
+                className="h-12 mt-5 bg-[#fbc02d] p-1 w-[70%] text-white capitalize font-medium rounded-l-md flex justify-center items-center"
+              >
                 sign in
               </button>
               <Link
                 className="h-12 mt-5 bg-black p-1 w-[30%] text-white capitalize font-medium rounded-r-md flex justify-center items-center"
-                to={"/sign-up"}>
+                to={"/sign-up"}
+              >
                 <button
-                  onClick={Submit}
                   className="
                 capitalize
-                ">
+                "
+                >
                   sign up
                 </button>
               </Link>

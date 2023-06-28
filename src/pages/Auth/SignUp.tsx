@@ -14,7 +14,7 @@ import { registerUser } from "../../Api/ApiCalls";
 import { useRecoilState } from "recoil";
 import { ReadNewUsers } from "../../Global/RecoilStateManagement";
 import Swal from "sweetalert2";
-import GoogleSignIn from "../../Global/GoogleSignIn";
+// import GoogleSignIn from "../../Global/GoogleSignIn";
 
 interface INewUsers {
   name: string;
@@ -59,12 +59,21 @@ const SignUp = () => {
     .required();
   type formData = yup.InferType<typeof schema>;
 
+  // const {
+  //   handleSubmit,
+  //   formState: { errors },
+  //   reset,
+  //   register,
+  // } = useForm<formData>({ resolver: yupResolver(schema) });
+
   const {
     handleSubmit,
     formState: { errors },
     reset,
     register,
-  } = useForm<formData>({ resolver: yupResolver(schema) });
+  } = useForm<formData>({
+    resolver: yupResolver(schema),
+  });
 
   const posting = useMutation({
     mutationKey: ["user"],
@@ -82,6 +91,7 @@ const SignUp = () => {
           navigate("/otp");
         },
       });
+      reset();
     },
 
     // If an error occured:
@@ -96,9 +106,8 @@ const SignUp = () => {
   });
 
   const Submit = handleSubmit(async (data: any) => {
-    posting.mutate(users);
+    posting.mutate(data);
     setUsers(users);
-    reset();
   });
   // console.log("users in creating user: ", users);
 
@@ -106,10 +115,14 @@ const SignUp = () => {
     <div className="w-full h-screen flex items-center justify-center">
       <div className="w-[85%] h-[95%] flex">
         <div className="w-[50%]  pt-5 pb-5 flex items-center justify-center">
-          <div className="w-[60%]  h-[90%]  flex items-center flex-col">
+          <form
+            onSubmit={Submit}
+            className="w-[60%]  h-[90%]  flex items-center flex-col"
+          >
             <div
               onClick={goBack}
-              className="text-[30px] font-bold   cursor-pointer self-start">
+              className="text-[30px] font-bold   cursor-pointer self-start"
+            >
               <BsArrowLeftCircle />
             </div>
             <div className="flex items-center justify-center flex-col">
@@ -125,7 +138,8 @@ const SignUp = () => {
             />
             <label
               htmlFor="pix"
-              className="rounded-2xl cursor-pointer bg-[#fbc02d] py-[10px] px-[30px] text-white capitalize">
+              className="rounded-2xl cursor-pointer bg-[#fbc02d] py-[10px] px-[30px] text-white capitalize"
+            >
               <input
                 onChange={captureImage}
                 type="file"
@@ -176,19 +190,21 @@ const SignUp = () => {
             </p>
             <div className="w-[90%] flex justify-center items-center">
               <button
-                onClick={Submit}
-                className="h-12 mt-5 bg-[#fbc02d] p-1 w-[70%] text-white capitalize font-medium rounded-l-md">
+                type="submit"
+                className="h-12 mt-5 bg-[#fbc02d] p-1 w-[70%] text-white capitalize font-medium rounded-l-md"
+              >
                 sign up
               </button>
               <Link
                 className="h-12 mt-5 bg-black p-1 w-[30%] text-white capitalize font-medium rounded-r-md flex justify-center items-center"
-                to={"/login"}>
+                to={"/login"}
+              >
                 <button className="capitalize">sign in</button>
               </Link>
             </div>
 
             {/* <GoogleSignIn /> */}
-          </div>
+          </form>
         </div>
 
         <div className="w-[50%] h-[100%] flex items-center justify-center">
