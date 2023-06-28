@@ -12,6 +12,9 @@ import { useForm } from "react-hook-form";
 import swr from "swr";
 import { useMutation } from "@tanstack/react-query";
 import { registerUser } from "../../Api/ApiCalls";
+import { useRecoilState } from "recoil";
+import { ReadNewUsers } from "../../Global/RecoilStateManagement";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
   const [show, setshow] = React.useState(false);
@@ -19,6 +22,9 @@ const SignUp = () => {
   const toggleFn = () => {
     setshow(!show);
   };
+
+  //Recoil state management:
+  const [users, setUsers] = useRecoilState(ReadNewUsers);
 
   const navigate_to_OTP_Page = () => {
     navigate("/otp");
@@ -63,12 +69,24 @@ const SignUp = () => {
 
     onSuccess: (data: any) => {
       console.log("data", data);
+      setUsers(data.data.data);
+
+      Swal.fire({
+        title: "User registered sucessfully",
+        html: "redirecting to login",
+        timer: 1000,
+        timerProgressBar: true,
+      });
     },
   });
 
   const Submit = handleSubmit(async (data: any) => {
     posting.mutate(data);
   });
+
+  console.log("submit", posting);
+
+  console.log("setUsers to test", setUsers);
 
   return (
     <div className="w-full h-screen bg-[#E6E8EA] flex items-center justify-center">
