@@ -73,7 +73,7 @@ const SignUp = () => {
     mutationFn: registerUser,
 
     // If successfull
-    onSuccess: () => {
+    onSuccess: (data) => {
       Swal.fire({
         title: "User registered sucessfully",
         html: "Redirecting to email for OTP",
@@ -186,7 +186,7 @@ const SignUp = () => {
                 type="submit"
                 className="h-12 mt-5 bg-[#fbc02d] p-1 w-[70%] text-white capitalize font-medium rounded-l-md"
               >
-                sign up
+                {posting?.isLoading ? "Loading..." : "sign up"}
               </button>
               <Link
                 className="h-12 mt-5 bg-black p-1 w-[30%] text-white capitalize font-medium rounded-r-md flex justify-center items-center"
