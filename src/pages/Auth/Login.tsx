@@ -64,7 +64,7 @@ const Login = () => {
     mutationKey: ["Login users"],
     mutationFn: LoginUser,
 
-    onSuccess: (mydata: any) => {
+    onSuccess: () => {
       Swal.fire({
         icon: "success",
         title: "Login succesful",
