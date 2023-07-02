@@ -170,7 +170,7 @@ const Login = () => {
                 onClick={Submit}
                 className="h-12 mt-5 bg-[#fbc02d] p-1 w-[70%] text-white capitalize font-medium rounded-l-md flex justify-center items-center"
               >
-                sign in
+                {posting?.isLoading ? "Loading..." : "sign in"}
               </button>
               <Link
                 className="h-12 mt-5 bg-black p-1 w-[30%] text-white capitalize font-medium rounded-r-md flex justify-center items-center"
