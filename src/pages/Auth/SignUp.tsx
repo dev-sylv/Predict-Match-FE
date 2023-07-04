@@ -13,6 +13,7 @@ import { useMutation } from "@tanstack/react-query";
 import { registerUser } from "../../Api/ApiCalls";
 import { useRecoilState } from "recoil";
 import { ReadNewUsers } from "../../Global/RecoilStateManagement";
+import { toast, ToastContainer } from "react-toastify";
 // import GoogleSignIn from "../../Global/GoogleSignIn";
 
 interface INewUsers {
@@ -73,6 +74,9 @@ const SignUp = () => {
 
     // If successfull
     onSuccess: (data) => {
+      toast.success("User registered sucessfully", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
       // Swal.fire({
       //   title: "User registered sucessfully",
       //   html: "Redirecting to email for OTP",
@@ -88,6 +92,11 @@ const SignUp = () => {
 
     // If an error occured:
     onError: (error: any) => {
+      toast.error("Couldn't create new user", {
+        data: {},
+        position: toast.POSITION.TOP_LEFT,
+        draggableDirection: "x",
+      });
       // Swal.fire({
       //   title: "Couldn't create new user",
       //   text: error?.response?.data?.message,
@@ -187,6 +196,7 @@ const SignUp = () => {
               >
                 {posting?.isLoading ? "Loading..." : "sign up"}
               </button>
+
               <Link
                 className="h-12 mt-5 bg-black p-1 w-[30%] text-white capitalize font-medium rounded-r-md flex justify-center items-center"
                 to={"/login"}
@@ -203,6 +213,7 @@ const SignUp = () => {
           <div className="w-[50%] h-[50%]  rounded-xl bg-no-repeat bg-contain bg-awardsBG"></div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

@@ -3,11 +3,14 @@ import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const notify = () => {
-    toast.loading("Loading...");
+    toast.error("Couldn't create new user", {
+      position: toast.POSITION.TOP_LEFT,
+      draggableDirection: "x",
+    });
   };
 
   return (
-    <div>
+    <div className="w-full h-screen  flex items-center justify-center">
       <button onClick={notify}>Notify!</button>
       <ToastContainer />
     </div>
