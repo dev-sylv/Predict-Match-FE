@@ -11,7 +11,6 @@ import { useMutation } from "@tanstack/react-query";
 import { LoginUser } from "../../Api/ApiCalls";
 import { useRecoilValue } from "recoil";
 import { ReadNewUsers } from "../../Global/RecoilStateManagement";
-import Swal from "sweetalert2";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
@@ -65,20 +64,20 @@ const Login = () => {
     mutationFn: LoginUser,
 
     onSuccess: () => {
-      Swal.fire({
-        icon: "success",
-        title: "Login succesful",
-        html: "Taking you to your dashboard",
-        timer: 1200,
+      // Swal.fire({
+      //   icon: "success",
+      //   title: "Login succesful",
+      //   html: "Taking you to your dashboard",
+      //   timer: 1200,
 
-        didOpen: () => {
-          Swal.showLoading();
-        },
+      //   didOpen: () => {
+        
+      //   },
 
-        willClose: () => {
-          navigate("/loading");
-        },
-      });
+      //   willClose: () => {
+      //     navigate("/loading");
+      //   },
+      // });
       // console.log("data", mydata);
       reset();
     },
@@ -87,12 +86,12 @@ const Login = () => {
       // console.log("this is error", error);
       // handle error here
 
-      Swal.fire({
-        title: "Login failed",
-        text: error?.response?.data?.message,
-        icon: "error",
-        timer: 1000,
-      });
+      // Swal.fire({
+      //   title: "Login failed",
+      //   text: error?.response?.data?.message,
+      //   icon: "error",
+      //   timer: 1000,
+      // });
     },
   });
 

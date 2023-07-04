@@ -13,7 +13,6 @@ import { useMutation } from "@tanstack/react-query";
 import { registerUser } from "../../Api/ApiCalls";
 import { useRecoilState } from "recoil";
 import { ReadNewUsers } from "../../Global/RecoilStateManagement";
-import Swal from "sweetalert2";
 // import GoogleSignIn from "../../Global/GoogleSignIn";
 
 interface INewUsers {
@@ -74,27 +73,27 @@ const SignUp = () => {
 
     // If successfull
     onSuccess: (data) => {
-      Swal.fire({
-        title: "User registered sucessfully",
-        html: "Redirecting to email for OTP",
-        timer: 2000,
-        icon: "success",
-        timerProgressBar: true,
-        willClose: () => {
-          navigate("/otp");
-        },
-      });
+      // Swal.fire({
+      //   title: "User registered sucessfully",
+      //   html: "Redirecting to email for OTP",
+      //   timer: 2000,
+      //   icon: "success",
+      //   timerProgressBar: true,
+      //   willClose: () => {
+      //     navigate("/otp");
+      //   },
+      // });
       reset();
     },
 
     // If an error occured:
     onError: (error: any) => {
-      Swal.fire({
-        title: "Couldn't create new user",
-        text: error?.response?.data?.message,
-        timer: 2000,
-        icon: "error",
-      });
+      // Swal.fire({
+      //   title: "Couldn't create new user",
+      //   text: error?.response?.data?.message,
+      //   timer: 2000,
+      //   icon: "error",
+      // });
     },
   });
 
