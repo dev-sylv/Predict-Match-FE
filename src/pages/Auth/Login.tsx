@@ -13,6 +13,7 @@ import { useRecoilValue } from "recoil";
 import { ReadNewUsers } from "../../Global/RecoilStateManagement";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { toast, ToastContainer } from "react-toastify";
 
 const Login = () => {
   const [show, setshow] = React.useState(true);
@@ -59,11 +60,22 @@ const Login = () => {
     resolver: yupResolver(userschema),
   });
 
+  const notify = () => {
+    toast.error("Couldn't create new user", {
+      position: toast.POSITION.TOP_LEFT,
+      draggableDirection: "x",
+    });
+  };
+
   const posting = useMutation({
     mutationKey: ["Login users"],
     mutationFn: LoginUser,
 
     onSuccess: () => {
+      toast.error("Couldn't create new user", {
+        position: toast.POSITION.BOTTOM_LEFT,
+        draggableDirection: "x",
+      });
       // Swal.fire({
       //   icon: "success",
       //   title: "Login succesful",
@@ -71,7 +83,7 @@ const Login = () => {
       //   timer: 1200,
 
       //   didOpen: () => {
-        
+
       //   },
 
       //   willClose: () => {
@@ -83,6 +95,7 @@ const Login = () => {
     },
 
     onError: (error: any) => {
+      notify();
       // console.log("this is error", error);
       // handle error here
 
@@ -191,6 +204,7 @@ const Login = () => {
           <div className="w-[50%] h-[50%] rounded-xl bg-no-repeat bg-cover bg-signupBG"></div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
