@@ -19,5 +19,6 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       </RecoilRoot>
       <ReactQueryDevtools />
     </QueryClientProvider>
+    {/* <App /> */}
   </React.StrictMode>
 );

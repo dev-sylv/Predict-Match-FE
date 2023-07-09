@@ -11,9 +11,9 @@ import { useMutation } from "@tanstack/react-query";
 import { LoginUser } from "../../Api/ApiCalls";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { ReadNewUsers } from "../../Global/RecoilStateManagement";
-import Swal from "sweetalert2";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { toast, ToastContainer } from "react-toastify";
 
 const Login = () => {
   const [show, setshow] = React.useState(true);
@@ -61,39 +61,51 @@ const Login = () => {
     resolver: yupResolver(userschema),
   });
 
+  const notify = () => {
+    toast.error("Couldn't create new user", {
+      position: toast.POSITION.TOP_LEFT,
+      draggableDirection: "x",
+    });
+  };
+
   const posting = useMutation({
     mutationKey: ["Login users"],
     mutationFn: LoginUser,
 
-    onSuccess: (mydata: any) => {
-      Swal.fire({
-        icon: "success",
-        title: "Login succesful",
-        html: "Taking you to your dashboard",
-        timer: 1200,
-
-        didOpen: () => {
-          Swal.showLoading();
-        },
-
-        willClose: () => {
-          navigate("/loading");
-        },
+    onSuccess: () => {
+      toast.error("Couldn't create new user", {
+        position: toast.POSITION.BOTTOM_LEFT,
+        draggableDirection: "x",
       });
+      // Swal.fire({
+      //   icon: "success",
+      //   title: "Login succesful",
+      //   html: "Taking you to your dashboard",
+      //   timer: 1200,
+
+      //   didOpen: () => {
+
+      //   },
+
+      //   willClose: () => {
+      //     navigate("/loading");
+      //   },
+      // });
       // console.log("data", mydata);
       reset();
     },
 
     onError: (error: any) => {
+      notify();
       // console.log("this is error", error);
       // handle error here
 
-      Swal.fire({
-        title: "Login failed",
-        text: error?.response?.data?.message,
-        icon: "error",
-        timer: 1000,
-      });
+      // Swal.fire({
+      //   title: "Login failed",
+      //   text: error?.response?.data?.message,
+      //   icon: "error",
+      //   timer: 1000,
+      // });
     },
   });
 
@@ -168,8 +180,14 @@ const Login = () => {
             <div className="w-[90%] flex justify-center items-center">
               <button
                 onClick={Submit}
+
                 className="h-12 mt-5 bg-[#fbc02d] p-1 w-[70%] text-white capitalize font-medium rounded-l-md flex justify-center items-center">
                 sign in
+
+                className="h-12 mt-5 bg-[#fbc02d] p-1 w-[70%] text-white capitalize font-medium rounded-l-md flex justify-center items-center"
+              >
+                {posting?.isLoading ? "Loading..." : "sign in"}
+
               </button>
               <Link
                 className="h-12 mt-5 bg-black p-1 w-[30%] text-white capitalize font-medium rounded-r-md flex justify-center items-center"
@@ -189,6 +207,7 @@ const Login = () => {
           <div className="w-[50%] h-[50%] rounded-xl bg-no-repeat bg-cover bg-signupBG"></div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

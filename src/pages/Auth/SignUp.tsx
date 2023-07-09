@@ -13,7 +13,7 @@ import { useMutation } from "@tanstack/react-query";
 import { registerUser } from "../../Api/ApiCalls";
 import { useRecoilState } from "recoil";
 import { ReadNewUsers } from "../../Global/RecoilStateManagement";
-import Swal from "sweetalert2";
+import { toast, ToastContainer } from "react-toastify";
 // import GoogleSignIn from "../../Global/GoogleSignIn";
 
 interface INewUsers {
@@ -73,28 +73,36 @@ const SignUp = () => {
     mutationFn: registerUser,
 
     // If successfull
-    onSuccess: () => {
-      Swal.fire({
-        title: "User registered sucessfully",
-        html: "Redirecting to email for OTP",
-        timer: 2000,
-        icon: "success",
-        timerProgressBar: true,
-        willClose: () => {
-          navigate("/otp");
-        },
+    onSuccess: (data) => {
+      toast.success("User registered sucessfully", {
+        position: toast.POSITION.TOP_RIGHT,
       });
+      // Swal.fire({
+      //   title: "User registered sucessfully",
+      //   html: "Redirecting to email for OTP",
+      //   timer: 2000,
+      //   icon: "success",
+      //   timerProgressBar: true,
+      //   willClose: () => {
+      //     navigate("/otp");
+      //   },
+      // });
       reset();
     },
 
     // If an error occured:
     onError: (error: any) => {
-      Swal.fire({
-        title: "Couldn't create new user",
-        text: error?.response?.data?.message,
-        timer: 2000,
-        icon: "error",
+      toast.error("Couldn't create new user", {
+        data: {},
+        position: toast.POSITION.TOP_LEFT,
+        draggableDirection: "x",
       });
+      // Swal.fire({
+      //   title: "Couldn't create new user",
+      //   text: error?.response?.data?.message,
+      //   timer: 2000,
+      //   icon: "error",
+      // });
     },
   });
 
@@ -182,9 +190,16 @@ const SignUp = () => {
             <div className="w-[90%] flex justify-center items-center">
               <button
                 type="submit"
+
                 className="h-12 mt-5 bg-[#fbc02d] p-1 w-[70%] text-white capitalize font-medium rounded-l-md">
                 sign up
+
+                className="h-12 mt-5 bg-[#fbc02d] p-1 w-[70%] text-white capitalize font-medium rounded-l-md"
+              >
+                {posting?.isLoading ? "Loading..." : "sign up"}
+
               </button>
+
               <Link
                 className="h-12 mt-5 bg-black p-1 w-[30%] text-white capitalize font-medium rounded-r-md flex justify-center items-center"
                 to={"/login"}>
@@ -200,6 +215,7 @@ const SignUp = () => {
           <div className="w-[50%] h-[50%]  rounded-xl bg-no-repeat bg-contain bg-awardsBG"></div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
