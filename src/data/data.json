@@ -1,0 +1,17 @@
+{
+  "data": [
+    {
+      "name": "rrr",
+      "email": "michealodebode2016@gmail.com",
+      "password": "$j8zDixhp5Bxf",
+      "id": 1
+    }
+  ],
+  "signin": [
+    {
+      "email": "michealodebode2016@gmail.com",
+      "password": "$j8zDixhp5Bxf",
+      "id": 1
+    }
+  ]
+}
