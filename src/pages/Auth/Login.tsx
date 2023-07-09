@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
 import { LoginUser } from "../../Api/ApiCalls";
-import { useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { ReadNewUsers } from "../../Global/RecoilStateManagement";
 import Swal from "sweetalert2";
 import * as yup from "yup";
@@ -19,7 +19,8 @@ const Login = () => {
   const [show, setshow] = React.useState(true);
 
   // Reading from my recoil state
-  const AccessUserData = useRecoilValue(ReadNewUsers);
+  const [AccessUserData, setAccessUserData] = useRecoilState(ReadNewUsers);
+
   // console.log("Accessuser data: ", AccessUserData);
 
   const toggleFn = () => {
@@ -98,6 +99,7 @@ const Login = () => {
 
   const Submit = handleSubmit(async (data: any) => {
     posting.mutate(data);
+    setAccessUserData(data);
   });
 
   return (
@@ -107,8 +109,7 @@ const Login = () => {
           <div className="w-[60%] h-[90%]  flex items-center flex-col">
             <div
               onClick={goBack}
-              className="text-[30px] font-bold cursor-pointer self-start"
-            >
+              className="text-[30px] font-bold cursor-pointer self-start">
               <BsArrowLeftCircle />
             </div>
             <div className="flex items-center justify-center flex-col">
@@ -124,8 +125,7 @@ const Login = () => {
             />
             <label
               htmlFor="pix"
-              className="rounded-2xl bg-[#fbc02d] cursor-pointer py-[10px] px-[30px] text-white capitalize"
-            >
+              className="rounded-2xl bg-[#fbc02d] cursor-pointer py-[10px] px-[30px] text-white capitalize">
               <input
                 onChange={captureImage}
                 type="file"
@@ -168,19 +168,16 @@ const Login = () => {
             <div className="w-[90%] flex justify-center items-center">
               <button
                 onClick={Submit}
-                className="h-12 mt-5 bg-[#fbc02d] p-1 w-[70%] text-white capitalize font-medium rounded-l-md flex justify-center items-center"
-              >
+                className="h-12 mt-5 bg-[#fbc02d] p-1 w-[70%] text-white capitalize font-medium rounded-l-md flex justify-center items-center">
                 sign in
               </button>
               <Link
                 className="h-12 mt-5 bg-black p-1 w-[30%] text-white capitalize font-medium rounded-r-md flex justify-center items-center"
-                to={"/sign-up"}
-              >
+                to={"/sign-up"}>
                 <button
                   className="
                 capitalize
-                "
-                >
+                ">
                   sign up
                 </button>
               </Link>

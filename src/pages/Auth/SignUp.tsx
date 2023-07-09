@@ -101,6 +101,7 @@ const SignUp = () => {
   const Submit = handleSubmit(async (data: any) => {
     posting.mutate(data);
     setUsers(users);
+    console.log("first");
   });
   // console.log("users in creating user: ", users);
 
@@ -110,12 +111,10 @@ const SignUp = () => {
         <div className="w-[50%]  pt-5 pb-5 flex items-center justify-center">
           <form
             onSubmit={Submit}
-            className="w-[60%]  h-[90%]  flex items-center flex-col"
-          >
+            className="w-[60%]  h-[90%]  flex items-center flex-col">
             <div
               onClick={goBack}
-              className="text-[30px] font-bold   cursor-pointer self-start"
-            >
+              className="text-[30px] font-bold   cursor-pointer self-start">
               <BsArrowLeftCircle />
             </div>
             <div className="flex items-center justify-center flex-col">
@@ -131,8 +130,7 @@ const SignUp = () => {
             />
             <label
               htmlFor="pix"
-              className="rounded-2xl cursor-pointer bg-[#fbc02d] py-[10px] px-[30px] text-white capitalize"
-            >
+              className="rounded-2xl cursor-pointer bg-[#fbc02d] py-[10px] px-[30px] text-white capitalize">
               <input
                 onChange={captureImage}
                 type="file"
@@ -184,14 +182,12 @@ const SignUp = () => {
             <div className="w-[90%] flex justify-center items-center">
               <button
                 type="submit"
-                className="h-12 mt-5 bg-[#fbc02d] p-1 w-[70%] text-white capitalize font-medium rounded-l-md"
-              >
+                className="h-12 mt-5 bg-[#fbc02d] p-1 w-[70%] text-white capitalize font-medium rounded-l-md">
                 sign up
               </button>
               <Link
                 className="h-12 mt-5 bg-black p-1 w-[30%] text-white capitalize font-medium rounded-r-md flex justify-center items-center"
-                to={"/login"}
-              >
+                to={"/login"}>
                 <button className="capitalize">sign in</button>
               </Link>
             </div>
